@@ -92,6 +92,10 @@ body{
     overflow-x: hidden;
 }
 
+*{
+    color:black;
+}
+
 html, body {height: 100%;}
 .floatleft {float:left !important;}
 .floatright {float:right !important;}

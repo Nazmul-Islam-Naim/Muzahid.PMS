@@ -72,7 +72,7 @@
         </div>
     </div>
 <!--Logo Mainmenu Start-->
-<div class="row" style="background-color: #186b59; border: 1px solid white; text-align:center">
+<div class="row" style="background-color: #186b59; border-top: 1px solid white; text-align:center">
     <div class="col-lg-12 d-none d-lg-block">
         <div class="mainmenu-area" style="padding:0px; float: unset;">
             <div class="mainmenu">
@@ -93,8 +93,11 @@
                                     </a>
 
                                     <ul class="subsubmenu">
-                                        <li class="current"><a  style="text-decoration:none"  href="{{route('cp-obligations')}}">CP Obigations</a></li>
+                                        <li class="current"><a  style="text-decoration:none"  href="{{route('cp-obligations')}}">CP</a></li>
+                                        <br/>
                                         <li class="current"><a  style="text-decoration:none"  href="{{route('construction-begins')}}">Constructions</a></li>
+                                        <br/>
+                                        <li class="current"><a  style="text-decoration:none"  href="{{route('construction-begins')}}">Operations</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -126,16 +129,18 @@
                                     <li class="current"><a  style="text-decoration:none ; background:#eee; color:#186B59;"  href="{{route('phase','development-phase')}}">Development Phase</a></li>
                                     <li class="current"><a  style="text-decoration:none ; background:#eee; color:#186B59;"  href="{{route('phase','procurement-phase')}}">Procurement Phase</a></li>
                                     <li class="current"><a  style="text-decoration:none ; background:#eee; color:#186B59;"  href="{{route('phase','award-phase')}}">Award Phase</a></li>
-                                    <li class="current submenu">
-                                        <a style="text-decoration:none ;background:#98A4FF; color:#fff;"  href="{{route('phase','implementation-phase')}}">
-                                            Implementation Phase<i class="fa fa-angle-right" style="margin-left:80px"></i>
-                                        </a>
+                                    <li>
+                                        <a style="line-height:30px; background:#eee; color:#186B59; text-decoration:none" href="#">Implementation Phase<i class="fa fa-angle-down"></i>
     
-                                        <ul class="subsubmenu">
-                                            <li class="current"><a  style="text-decoration:none ; background:#eee; color:#186B59;"  href="{{route('cp-obligations')}}">CP Obigations</a></li>
-                                            <li class="current"><a  style="text-decoration:none ; background:#eee; color:#186B59;"  href="{{route('construction-begins')}}">Constructions</a></li>
+                                        <ul class="sub-menu">
+                                            <li class="current"><a  style="text-decoration:none; background-color:#eee;"  href="{{route('cp-obligations')}}">CP</a></li>
+                                            <br/>
+                                            <li class="current"><a  style="text-decoration:none; background-color:#eee;"  href="{{route('construction-begins')}}">Constructions</a></li>
+                                            <br/>
+                                            <li class="current"><a  style="text-decoration:none; background-color:#eee;"  href="{{route('construction-begins')}}">Operations</a></li>
                                         </ul>
                                     </li>
+
                                 </ul>
                             </li>
                             <li class="current"><a style="line-height:30px; background:#eee; color:#186B59; text-decoration:none" href="{{route('glossary')}}">PPP Glossary</a></li>

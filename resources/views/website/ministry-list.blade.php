@@ -7,10 +7,23 @@
 
 
         /* // new navbar styles =======================
-            ==================================================> */
+                ==================================================> */
 
         .headerNavBtn {
-            width: 150px;
+            width: 200px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            padding: 0px 10px;
+            border: none;
+            outline: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.7px;
+        }
+
+        .headerNavSubBtn{
+          width: 180px;
             height: 30px;
             display: flex;
             align-items: center;
@@ -23,7 +36,7 @@
         }
 
         .headerNavBtn-badge {
-            background: indigo;
+            background: #186B59;
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -34,29 +47,14 @@
             justify-content: center
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 100%;
-            height: 3px;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: none;
-        }
-
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: none;
-        }
-
 
         /* // header responsive */
-        /* @media only screen and (max-width: 700px) {
-                .navbar-main-container {
-                    padding-top: 3rem;
-                    padding-bottom: 9rem;
-                    flex-wrap: wrap;
-                }
+        @media only screen and (max-width: 650px) {
+            .headerNavBtn {
+                width: 250px;
+            }
 
-            } */
+        }
     </style>
 
 
@@ -68,25 +66,25 @@
 
         {{-- top header start here ==========
       ===========================================> --}}
-        <div class="custom-scrollbar" style="overflow-x:scroll; margin: 2rem 0;">
-            <div class="container d-flex align-items-center gap-2">
+        <div class="container d-flex align-items-center justify-content-center my-4">
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
+            <div class="row  g-3">
+                <div class="col-4" style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Ministries </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Sector </button>
+                <div class="col-4" style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Sectors </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Projects </button>
+                <div class="col-4 " style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Projects </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
-
             </div>
+
         </div>
         {{-- top header end here ==========
       ===========================================> --}}
@@ -95,47 +93,61 @@
         {{-- middle header end here ==========
       ===========================================> --}}
 
-        <div class="custom-scrollbar" style="overflow-x:scroll; margin-bottom: 2rem;">
-            <div class="container d-flex align-items-center gap-2">
+        <div class="container d-flex flex-wrap align-items-center  justify-content-center gap-2 mb-4">
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
+            <div class="row g-3">
+                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Identification  </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
+                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Development  </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
+                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Procurement  </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
 
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
+                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                    <button class="headerNavBtn"> Award </button>
                     <div class="headerNavBtn-badge"> 1700 </div>
                 </div>
-
-                <div style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Number Of Ministry </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
-                </div>
-
             </div>
         </div>
+
+
+        <div class="container d-flex flex-column align-items-center justify-content-center mb-5">
+            <div class=" d-flex  align-items-center  justify-content-center mb-3">
+                <button class="headerNavBtn"> Implementation Stage </button>
+                <div class="headerNavBtn-badge"> 1700 </div>
+            </div>
+            <div class="d-flex flex-wrap items-center justify-content-center gap-3">
+              <div class="d-flex items-center">
+              <button type="button" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0"> CP </button>
+              <div class="headerNavBtn-badge"> 1700 </div>
+              </div>
+              <div class="d-flex items-center">
+                <button type="button" class="headerNavSubBtn btn btn-success mb-1 rounded-0"> Constructions </button>
+                <div class="headerNavBtn-badge"> 1700 </div>
+                </div>
+                <div class="d-flex items-center">
+                  <button type="button" class="headerNavSubBtn btn btn-danger mb-1 rounded-0"> Operations </button>
+                  <div class="headerNavBtn-badge"> 1700 </div>
+                  </div>
+            </div>
+        </div>
+
+       
 
         {{-- middle header end here ==========
       ===========================================> --}}
 
 
 
-      {{-- end header start start =========================
-      ====================================================> --}}
-
-      <div class="custom-scrollbar" style="overflow-x:scroll; margin-bottom: 3rem;">
-        <div class="container d-flex align-items-center gap-2">
+        {{-- <div class="container d-flex align-items-center  justify-content-center gap-2">
 
                 <button  type="button" class="headerNavBtn btn btn-secondary"> CP </button>
 
@@ -143,11 +155,9 @@
 
                 <button  type="button" class="headerNavBtn btn btn-danger"> Operation </button>
 
-        </div>
-    </div>
-      
-      {{-- end header end here =========================
-      ====================================================> --}}
+        </div> --}}
+
+
 
 
     </section>
