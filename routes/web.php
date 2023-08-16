@@ -197,6 +197,7 @@ Route::get('project-records/contracting-authority/{slug}', 'App\Http\Controllers
 Route::get('project-records/phase/{slug}', 'App\Http\Controllers\WebsiteController@phaseWiseProjectList')->name('phase');
 Route::get('project-records/cp-obligations', 'App\Http\Controllers\WebsiteController@cpObligations')->name('cp-obligations');
 Route::get('project-records/construction-begins', 'App\Http\Controllers\WebsiteController@constructionBegins')->name('construction-begins');
+Route::get('project-records/operations', 'App\Http\Controllers\WebsiteController@operations')->name('operations');
 Route::get('glossary', 'App\Http\Controllers\WebsiteController@glossary')->name('glossary');
 Route::get('faq', 'App\Http\Controllers\WebsiteController@faq')->name('faq');
 

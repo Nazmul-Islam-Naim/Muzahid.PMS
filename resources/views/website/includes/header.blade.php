@@ -104,7 +104,7 @@
                                             href="{{ route('phase', 'award-phase') }}">Award Phase</a></li>
                                     <li class="current submenu">
                                         <a style="text-decoration:none;"
-                                            href="{{ route('phase', 'implementation-phase') }}">
+                                            href="#">
                                             Implementation Phase<i class="fa fa-angle-right"
                                                 style="margin-left:80px"></i>
                                         </a>
@@ -117,7 +117,10 @@
                                                     href="{{ route('construction-begins') }}">Constructions</a></li>
                                             <br />
                                             <li class="current"><a style="text-decoration:none"
-                                                    href="{{ route('construction-begins') }}">Operations</a></li>
+                                                    href="{{ route('operations') }}">Operations</a></li>
+                                                    <br>
+                                            <li class="current"><a style="text-decoration:none"
+                                                    href="{{ route('phase', 'implementation-phase') }}">All</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -182,7 +185,10 @@
                                                             href="{{ route('construction-begins') }}">Constructions</a>
                                                     </li>
                                                     <li class="current"><a style="text-decoration:none; background:#eee;"
-                                                            href="{{ route('construction-begins') }}">Operations</a>
+                                                            href="{{ route('operations') }}">Operations</a>
+                                                    </li>
+                                                    <li class="current"><a style="text-decoration:none; background:#eee;"
+                                                            href="{{ route('phase', 'implementation-phase') }}">All</a>
                                                     </li>
                                                 </ul>
                                         </li>

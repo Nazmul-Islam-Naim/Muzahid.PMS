@@ -16,6 +16,7 @@ class WebsiteController extends Controller
 {
     //project list
     public function projectList(Request $request){
+        $data['projects'] = Project::count();
         if ($request->ajax()) {
             $alldata= Project::with(['sector','phase','subphase'])
                             ->where('status', '1')
@@ -23,7 +24,7 @@ class WebsiteController extends Controller
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
         }
-        return view('website.home');
+        return view('website.home', $this->header());
     }
 
     //project profile
@@ -40,7 +41,7 @@ class WebsiteController extends Controller
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
         }
-        return view('website.sector-list');
+        return view('website.sector-list', $this->header());
     }
 
     // sector wise project list
@@ -64,7 +65,7 @@ class WebsiteController extends Controller
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
         }
-        return view('website.ministry-list');
+        return view('website.ministry-list', $this->header());
     }
 
     // implementing agency
@@ -175,6 +176,18 @@ class WebsiteController extends Controller
         }
             return view('website.constructionBegins');
     }
+    
+    // operations
+    public function operations(Request $request){
+        if ($request->ajax()) {
+            $alldata= Project::with(['sector','phase','subphase'])
+                            ->where([['phase_id',5],['sub_phase_id',31]])
+                            ->get();
+            return DataTables::of($alldata)
+            ->addIndexColumn()->make(True);
+        }
+            return view('website.operations');
+    }
 
     
     // glossary list
@@ -191,5 +204,22 @@ class WebsiteController extends Controller
     public function faq(){
         $faqs = FAQ::all();
         return view('website.faq',compact('faqs'));
+    }
+
+    // header 
+    public function header(){
+        $data['projects'] = Project::count();
+        $data['sectors'] = Sector::count();
+        $data['ministries'] = Ministry::count();
+        $data['ministries'] = Ministry::count();
+        $data['identitifications'] = Project::where('phase_id',1)->count();
+        $data['developments'] = Project::where('phase_id',2)->count();
+        $data['procurements'] = Project::where('phase_id',3)->count();
+        $data['awards'] = Project::where('phase_id',4)->count();
+        $data['implementations'] = Project::where('phase_id',5)->count();
+        $data['cps'] = Project::where([['phase_id',5],['sub_phase_id',29]])->count();
+        $data['constructions'] = Project::where([['phase_id',5],['sub_phase_id',30]])->count();
+        $data['operations'] = Project::where([['phase_id',5],['sub_phase_id',31]])->count();
+        return $data;
     }
 }

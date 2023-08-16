@@ -36,7 +36,7 @@
         }
 
         .headerNavBtn-badge {
-            background: #186B59;
+            background: #6e807c;
             color: white;
             font-size: 0.8rem;
             font-weight: 600;
@@ -71,17 +71,17 @@
             <div class="row  g-3">
                 <div class="col-4" style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Ministries </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$ministries}} </div>
                 </div>
 
                 <div class="col-4" style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Sectors </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$sectors}} </div>
                 </div>
 
                 <div class="col-4 " style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Projects </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$projects}} </div>
                 </div>
             </div>
 
@@ -98,22 +98,22 @@
             <div class="row g-3">
                 <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Identification  </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$identitifications}} </div>
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Development  </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$developments}} </div>
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Procurement  </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$procurements}} </div>
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
                     <button class="headerNavBtn"> Award </button>
-                    <div class="headerNavBtn-badge"> 1700 </div>
+                    <div class="headerNavBtn-badge"> {{$awards}} </div>
                 </div>
             </div>
         </div>
@@ -122,20 +122,20 @@
         <div class="container d-flex flex-column align-items-center justify-content-center mb-5">
             <div class=" d-flex  align-items-center  justify-content-center mb-3">
                 <button class="headerNavBtn"> Implementation Stage </button>
-                <div class="headerNavBtn-badge"> 1700 </div>
+                <div class="headerNavBtn-badge"> {{$implementations}} </div>
             </div>
             <div class="d-flex flex-wrap items-center justify-content-center gap-3">
               <div class="d-flex items-center">
               <button type="button" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0"> CP </button>
-              <div class="headerNavBtn-badge"> 1700 </div>
+              <div class="headerNavBtn-badge"> {{$cps}} </div>
               </div>
               <div class="d-flex items-center">
                 <button type="button" class="headerNavSubBtn btn btn-success mb-1 rounded-0"> Constructions </button>
-                <div class="headerNavBtn-badge"> 1700 </div>
+                <div class="headerNavBtn-badge"> {{$constructions}} </div>
                 </div>
                 <div class="d-flex items-center">
                   <button type="button" class="headerNavSubBtn btn btn-danger mb-1 rounded-0"> Operations </button>
-                  <div class="headerNavBtn-badge"> 1700 </div>
+                  <div class="headerNavBtn-badge"> {{$operations}} </div>
                   </div>
             </div>
         </div>
