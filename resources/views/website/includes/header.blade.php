@@ -131,8 +131,13 @@
                                     href="{{ route('faq') }}">FAQ</a></li>
                             <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
                                     href="{{ route('graph') }}">Graph</a></li>
+                            @if (auth()->user())
+                            <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
+                                    href="{{ route('home') }}">Edit Mode</a></li>
+                            @else
                             <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
                                     href="{{ route('login') }}">Sign in</a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -206,9 +211,15 @@
                                 <li class="current"><a
                                         style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
                                         href="{{ route('graph') }}">Graph</a></li>
+                                @if (auth()->user())
+                                <li class="current"><a
+                                        style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
+                                        href="{{ route('home') }}">Edit Mode</a></li>
+                                @else
                                 <li class="current"><a
                                         style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
                                         href="{{ route('login') }}">Sign in</a></li>
+                                @endif
                             </ul>
                         </nav>
                     </div>

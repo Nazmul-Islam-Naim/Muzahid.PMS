@@ -16,7 +16,6 @@ class WebsiteController extends Controller
 {
     //project list
     public function projectList(Request $request){
-        $data['projects'] = Project::count();
         if ($request->ajax()) {
             $alldata= Project::with(['sector','phase','subphase'])
                             ->where('status', '1')

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Gate;
 use Session;
 use Auth;
 use DB;
+use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
@@ -49,6 +50,19 @@ class HomeController extends Controller
         $data['document'] = OthersDocument::count();
         $data['g2g'] = G2GDocument::count();
         return view('user-home',$data);
+    }
+
+    public function webView(Request $request){
+        $webView = new WebsiteController();
+        if ($request->ajax()) {
+            $alldata= Project::with(['sector','phase','subphase'])
+                            ->where('status', '1')
+                            ->orderBy('phase_id', 'asc')
+                            ->get();
+            return DataTables::of($alldata)
+            ->addIndexColumn()->make(True);
+        }
+        return view('webView', $webView->header());
     }
 
     public function selectBranch()
