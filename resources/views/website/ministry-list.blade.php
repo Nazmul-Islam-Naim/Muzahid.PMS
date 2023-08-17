@@ -1,170 +1,170 @@
 @extends('layouts.frontend-app')
 @section('content')
-    <style>
-        table.dataTable th {
-            background: #186b59;
-        }
-
-
-        /* // new navbar styles =======================
-                ==================================================> */
-
+<style>
+    table.dataTable th {
+        background: #186b59;
+    }
+  
+  
+    /* // new navbar styles =======================
+            ==================================================> */
+  
+    .headerNavBtn {
+        width: 200px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        border: none;
+        outline: none;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+    }
+  
+    .headerNavSubBtn{
+      width: 180px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        padding: 0px 10px;
+        border: none;
+        outline: none;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.7px;
+    }
+  
+    .headerNavBtn-badge {
+        background: #6e807c;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 600;
+        height: 30px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+    }
+  
+  
+    /* // header responsive */
+    @media only screen and (max-width: 650px) {
         .headerNavBtn {
-            width: 200px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            padding: 0px 10px;
-            border: none;
-            outline: none;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.7px;
+            width: 250px;
         }
-
-        .headerNavSubBtn{
-          width: 180px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            padding: 0px 10px;
-            border: none;
-            outline: none;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.7px;
-        }
-
-        .headerNavBtn-badge {
-            background: #6e807c;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 600;
-            height: 30px;
-            width: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center
-        }
-
-
-        /* // header responsive */
-        @media only screen and (max-width: 650px) {
-            .headerNavBtn {
-                width: 250px;
-            }
-
-        }
-    </style>
-
-
-    {{-- navbar area start here ============================
-==============================================> --}}
-
-
-    <section>
-
-        {{-- top header start here ==========
-      ===========================================> --}}
-        <div class="container d-flex align-items-center justify-content-center my-4">
-
-            <div class="row  g-3">
-                <div class="col-4" style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Ministries </button>
-                    <div class="headerNavBtn-badge"> {{$ministries}} </div>
-                </div>
-
-                <div class="col-4" style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Sectors </button>
-                    <div class="headerNavBtn-badge"> {{$sectors}} </div>
-                </div>
-
-                <div class="col-4 " style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Projects </button>
-                    <div class="headerNavBtn-badge"> {{$projects}} </div>
-                </div>
+  
+    }
+  </style>
+  
+  
+  {{-- navbar area start here ============================
+  ==============================================> --}}
+  
+  
+  <section>
+  
+    {{-- top header start here ==========
+  ===========================================> --}}
+    <div class="container d-flex align-items-center justify-content-center my-4">
+  
+        <div class="row  g-3">
+            <div class="col-4" style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#E40C78"> Ministries </button>
+                <div class="headerNavBtn-badge" style="background-color:#E40C78"> {{$ministries}} </div>
             </div>
-
-        </div>
-        {{-- top header end here ==========
-      ===========================================> --}}
-
-
-        {{-- middle header end here ==========
-      ===========================================> --}}
-
-        <div class="container d-flex flex-wrap align-items-center  justify-content-center gap-2 mb-4">
-
-            <div class="row g-3">
-                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Identification  </button>
-                    <div class="headerNavBtn-badge"> {{$identitifications}} </div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Development  </button>
-                    <div class="headerNavBtn-badge"> {{$developments}} </div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Procurement  </button>
-                    <div class="headerNavBtn-badge"> {{$procurements}} </div>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-                    <button class="headerNavBtn"> Award </button>
-                    <div class="headerNavBtn-badge"> {{$awards}} </div>
-                </div>
+  
+            <div class="col-4" style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#af3ec6"> Sectors </button>
+                <div class="headerNavBtn-badge" style="background-color:#af3ec6"> {{$sectors}} </div>
+            </div>
+  
+            <div class="col-4 " style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#1d7dd6"> Projects </button>
+                <div class="headerNavBtn-badge" style="background-color:#1d7dd6"> {{$projects}} </div>
             </div>
         </div>
-
-
-        <div class="container d-flex flex-column align-items-center justify-content-center mb-5">
-            <div class=" d-flex  align-items-center  justify-content-center mb-3">
-                <button class="headerNavBtn"> Implementation Stage </button>
-                <div class="headerNavBtn-badge"> {{$implementations}} </div>
+  
+    </div>
+    {{-- top header end here ==========
+  ===========================================> --}}
+  
+  
+    {{-- middle header end here ==========
+  ===========================================> --}}
+  
+    <div class="container d-flex flex-wrap align-items-center  justify-content-center gap-2 mb-4">
+  
+        <div class="row g-3">
+            <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#14acce"> Identification  </button>
+                <div class="headerNavBtn-badge" style="background-color:#14acce"> {{$identitifications}} </div>
             </div>
-            <div class="d-flex flex-wrap items-center justify-content-center gap-3">
-              <div class="d-flex items-center">
-              <button type="button" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0"> CP </button>
-              <div class="headerNavBtn-badge"> {{$cps}} </div>
+  
+            <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#2bc2c0"> Development  </button>
+                <div class="headerNavBtn-badge" style="background-color:#2bc2c0"> {{$developments}} </div>
+            </div>
+  
+            <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#30c982"> Procurement  </button>
+                <div class="headerNavBtn-badge" style="background-color:#30c982"> {{$procurements}} </div>
+            </div>
+  
+            <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
+                <button class="headerNavBtn" style="background-color:#d69e1d"> Award </button>
+                <div class="headerNavBtn-badge" style="background-color:#d69e1d"> {{$awards}} </div>
+            </div>
+        </div>
+    </div>
+  
+  
+    <div class="container d-flex flex-column align-items-center justify-content-center mb-5">
+        <div class=" col-sm-12 col-md-12 d-flex  align-items-center  justify-content-center mb-3" style="background-color:#cd2182" >
+            <button class="headerNavBtn" style="background-color:#cd2182"> Implementation Stage </button>
+            <div class="headerNavBtn-badge" style="background-color:#cd2182"> {{$implementations}} </div>
+        </div>
+        <div class="d-flex flex-wrap items-center justify-content-center gap-3">
+          <div class="d-flex items-center">
+          <button type="button" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0" style="background-color:#b23939"> CP </button>
+          <div class="headerNavBtn-badge" style="background-color:#b23939"> {{$cps}} </div>
+          </div>
+          <div class="d-flex items-center">
+            <button type="button" class="headerNavSubBtn btn btn-success mb-1 rounded-0" style="background-color:#266faf"> Constructions </button>
+            <div class="headerNavBtn-badge" style="background-color:#266faf"> {{$constructions}} </div>
+            </div>
+            <div class="d-flex items-center">
+              <button type="button" class="headerNavSubBtn btn btn-danger mb-1 rounded-0" style="background-color:#1dbad6"> Operations </button>
+              <div class="headerNavBtn-badge" style="background-color:#1dbad6"> {{$operations}} </div>
               </div>
-              <div class="d-flex items-center">
-                <button type="button" class="headerNavSubBtn btn btn-success mb-1 rounded-0"> Constructions </button>
-                <div class="headerNavBtn-badge"> {{$constructions}} </div>
-                </div>
-                <div class="d-flex items-center">
-                  <button type="button" class="headerNavSubBtn btn btn-danger mb-1 rounded-0"> Operations </button>
-                  <div class="headerNavBtn-badge"> {{$operations}} </div>
-                  </div>
-            </div>
         </div>
-
-       
-
-        {{-- middle header end here ==========
-      ===========================================> --}}
-
-
-
-        {{-- <div class="container d-flex align-items-center  justify-content-center gap-2">
-
-                <button  type="button" class="headerNavBtn btn btn-secondary"> CP </button>
-
-                <button v class="headerNavBtn btn btn-success"> Constraction </button>
-
-                <button  type="button" class="headerNavBtn btn btn-danger"> Operation </button>
-
-        </div> --}}
-
-
-
-
-    </section>
-
-
-    {{-- navbar area end here ============================
-==============================================/> --}}
+    </div>
+  
+   
+  
+    {{-- middle header end here ==========
+  ===========================================> --}}
+  
+  
+  
+    {{-- <div class="container d-flex align-items-center  justify-content-center gap-2">
+  
+            <button  type="button" class="headerNavBtn btn btn-secondary"> CP </button>
+  
+            <button v class="headerNavBtn btn btn-success"> Constraction </button>
+  
+            <button  type="button" class="headerNavBtn btn btn-danger"> Operation </button>
+  
+    </div> --}}
+  
+  
+  
+  
+  </section>
+  
+  
+  {{-- navbar area end here ============================
+  ==============================================/> --}}
 
 
     <!--Activity Area Start-->

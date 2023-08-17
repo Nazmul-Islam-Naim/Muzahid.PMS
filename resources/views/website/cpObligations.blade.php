@@ -9,7 +9,7 @@
 <!--Activity Area Start-->
 <div>
     <div class="container mt-5">
-        <h5>PPP Projects in Implementation Phase</h5>
+        <h5>PPP Projects in CP Stage</h5>
     <hr>
     </div>
 </div>
