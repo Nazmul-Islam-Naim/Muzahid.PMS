@@ -22,4 +22,8 @@ class Sector extends Model
     public function sectorProjects(){
         return $this->hasMany(Project::class,'sector_id');
     }
+
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
 }

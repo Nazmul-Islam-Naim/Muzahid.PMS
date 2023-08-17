@@ -27,4 +27,8 @@ class Ministry extends Model
     public function ministryProjects(){
         return $this->hasMany(Project::class,'ministry_id');
     }
+    
+    public function projects(){
+        return $this->hasMany(Project::class);
+    }
 }

@@ -224,6 +224,7 @@
 			ajax: "{{route('web-project-list')}}",
       "lengthMenu": [[ 100, 150, 250, -1 ],[ '100', '150', '250', 'All' ]],
       dom: 'frtip',
+      bPaginate:true,
 			aaSorting: [[0, "asc"]],
 
 			columns: [

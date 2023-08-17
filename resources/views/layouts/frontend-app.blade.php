@@ -44,6 +44,7 @@
         {!!Html::style('custom/vendor/datatables/dataTables.bs4.css')!!}
         {!!Html::style('custom/vendor/datatables/dataTables.bs4-custom.css')!!}
         {!!Html::style('custom/vendor/datatables/buttons.bs.css')!!}
+		{!!Html::style('custom/yajraTableJs/jquery.dataTables.css')!!}
     </head>
 
 <body>

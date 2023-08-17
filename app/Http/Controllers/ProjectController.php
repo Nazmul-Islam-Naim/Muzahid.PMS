@@ -41,6 +41,7 @@ class ProjectController extends Controller
         if ($request->ajax()) {
             $alldata= Project::with(['sector','ministry','agency','approval','partner','location','cost','feasibility','construction','phase','subphase'])
                             ->where('status', '1')
+                            ->orderBy('phase_id', 'asc')
                             ->get();
             return DataTables::of($alldata)
             ->addIndexColumn()
@@ -295,6 +296,7 @@ class ProjectController extends Controller
         if ($request->ajax()) {
             $alldata= Project::with(['sector','ministry','agency','approval','partner','location','cost','feasibility','construction','phase','subphase'])
                             ->where('status', '1')
+                            ->orderBy('phase_id', 'asc')
                             ->get();
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);

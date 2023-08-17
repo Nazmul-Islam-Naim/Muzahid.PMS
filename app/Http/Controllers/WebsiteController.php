@@ -20,6 +20,7 @@ class WebsiteController extends Controller
         if ($request->ajax()) {
             $alldata= Project::with(['sector','phase','subphase'])
                             ->where('status', '1')
+                            ->orderBy('phase_id', 'asc')
                             ->get();
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
@@ -51,6 +52,7 @@ class WebsiteController extends Controller
             $id = Sector::where('slug',$slug)->select('id')->first();
             $alldata= Project::with(['sector','phase','subphase'])
                             ->where('sector_id', $id->id)
+                            ->orderBy('phase_id', 'asc')
                             ->get();
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
@@ -87,6 +89,7 @@ class WebsiteController extends Controller
             $id = ImplementingAgency::where('slug',$slug)->select('id')->first();
             $alldata= Project::with(['sector','phase','subphase'])
                             ->where('implementing_agency_id', $id->id)
+                            ->orderBy('phase_id', 'asc')
                             ->get();
             return DataTables::of($alldata)
             ->addIndexColumn()->make(True);
@@ -204,6 +207,35 @@ class WebsiteController extends Controller
     public function faq(){
         $faqs = FAQ::all();
         return view('website.faq',compact('faqs'));
+    }
+    
+    // graph list
+    public function graph(){
+        return view('website.graph');
+    }
+    // projectPhases
+    public function projectPhases(){
+        $data['identitifications'] = Project::where('phase_id',1)->count();
+        $data['developments'] = Project::where('phase_id',2)->count();
+        $data['procurements'] = Project::where('phase_id',3)->count();
+        $data['awards'] = Project::where('phase_id',4)->count();
+        $data['implementations'] = Project::where('phase_id',5)->count();
+        $data['cps'] = Project::where([['phase_id',5],['sub_phase_id',29]])->count();
+        $data['constructions'] = Project::where([['phase_id',5],['sub_phase_id',30]])->count();
+        $data['operations'] = Project::where([['phase_id',5],['sub_phase_id',31]])->count();
+        return response()->json($data);
+    }
+
+    // projectSector
+    public function projectSector(){
+        $data['projectSectors'] = Sector::with('projects')->get();
+        return response()->json($data);
+    }
+
+    // projcetMinistry
+    public function projcetMinistry(){
+        $data['projectMinistries'] = Ministry::with('projects')->get();
+        return response()->json($data);
     }
 
     // header 

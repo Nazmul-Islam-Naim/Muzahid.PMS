@@ -23,9 +23,7 @@
        <div class="text-center">
             <h5 class="card-title">Profile Of "{{$single_data->name}}"</h5>
             <p><small> Updated At: {{$single_data->updated_at}}</small></p>
-            <span class="badge bg-info">Pending</span>
             <span class="badge bg-warning">Running</span>
-            <span class="badge bg-success">Complete</span>
       </div>
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
       <?php 
@@ -42,7 +40,7 @@
         if ( ($color1of1 > 0) &&  ($color1of1 < 4) ) {
           $color1 = 'warning';
         } elseif( ($color1of1 == 4) || ($color1of1 > 4)) {
-          $color1 = 'success';
+          $color1 = 'info';
         }else{
           $color1 = 'info';
         }
@@ -53,7 +51,7 @@
         if ( ($color2of1 > 0) && ($color2of1 < 10) ) {
           $color2 = 'warning';
         } elseif( ($color2of1 == 10) || ($color2of1 > 10)) {
-          $color2 = 'success';
+          $color2 = 'info';
         }else{
           $color2 = 'info';
         }
@@ -64,7 +62,7 @@
         if ( ($color3of1 > 0) &&  ($color3of1 < 8) ) {
           $color3 = 'warning';
         } elseif( ($color3of1 == 8) || ($color3of1 > 8)) {
-          $color3 = 'success';
+          $color3 = 'info';
         }else{
           $color3 = 'info';
         }
@@ -75,7 +73,7 @@
         if ( ($color4of1 > 0) &&  ($color4of1 < 6) ) {
           $color4 = 'warning';
         } elseif( ($color4of1 == 6) || ($color4of1 > 6)) {
-          $color4 = 'success';
+          $color4 = 'info';
         }else{
           $color4 = 'info';
         }
@@ -86,7 +84,7 @@
         if ( ($color5of1 > 0) &&  ($color5of1 < 2) ) {
           $color5 = 'warning';
         } elseif( ($color5of1 == 2) || ($color5of1 > 2)) {
-          $color5 = 'success';
+          $color5 = 'info';
         }else{
           $color5 = 'info';
         }
@@ -308,8 +306,8 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Information:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset"> Details </td>
                         </tr>
-                        <tr style="background: #186B59; color:white;"> 
-                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b>Project Summery</b> </td>
+                        <tr style="background: #698d57; color:white;"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color:white">Project Summery</b> </td>
                         </tr>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Project Name:</b></td>
@@ -368,8 +366,8 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Construction Time:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->construction_time}} </td>
                         </tr>
-                        <tr style="background: #186B59; color:white"> 
-                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b>Project Structure/Model</b> </td>
+                        <tr style="background: #2b7251bd; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Project Structure/Model</b> </td>
                         </tr>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>PPP Structure:</b></td>
@@ -379,8 +377,8 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>PPP Reveneue Model:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->revenue_model)) ? $single_data->revenue_model : '' }} </td>
                         </tr>
-                        <tr style="background: #186B59; color:white"> 
-                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b>Project Estimated Cost per PFS/DFS</b> </td>
+                        <tr style="background: #31835df7; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Project Estimated Cost per PFS/DFS</b> </td>
                         </tr>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Total Estimated Capital Cost:</b></td>
@@ -398,8 +396,8 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>VGF amount %:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->vgf_amount_percent)) ? $single_data->vgf_amount_percent : '' }} </td>
                         </tr>
-                        <tr style="background: #186B59; color:white"> 
-                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b>Stakeholder Details</b> </td>
+                        <tr style="background: #2b8773; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Stakeholder Details</b> </td>
                         </tr>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Grantor:</b></td>
@@ -437,8 +435,8 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Independent Engineer:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->independent_engineer}} </td>
                         </tr>
-                        <tr style="background: #186B59; color:white"> 
-                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b>Key dates</b> </td>
+                        <tr style="background: #229999eb; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Key dates</b> </td>
                         </tr>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Project Screening Date:</b></td>
@@ -476,16 +474,25 @@
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Commercial Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->commercial_date)) ? date('d-m-Y',strtotime($single_data->commercial_date)) : ''}} </td>
                         </tr>
-                        <tr> 
-                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Construction Contractor:</b></td>
-                          <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{!empty($single_data->construction)?$single_data->construction->name:'Not Yet'}} </td>
+                        <tr style="background: #0f6868eb; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Construction Contractor</b></b> </td>
                         </tr>
                         <tr> 
-                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>TA Service Provider:</b></td>
+                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
+                          <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{!empty($single_data->construction)?$single_data->construction->name:'Not Yet'}} </td>
+                        </tr>
+                        <tr style="background: #088d8deb; color:white"> 
+                          <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">TA Service Provider</b></b> </td>
+                        </tr>
+                        <tr> 
+                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{($single_data->feasibility != null)?$single_data->feasibility->name:'Not Yet'}}</td>
                         <tr> 
+                          <tr style="background: #067070eb; color:white"> 
+                            <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Present Status</b></b> </td>
+                          </tr>
                         <tr> 
-                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Present Status:</b></td>
+                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{($single_data->phase != null)?$single_data->phase->name:'Not Yet'}} ({{($single_data->subphase != null)?$single_data->subphase->name:'Not Yet'}}) </td>
                         <tr> 
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Note:</b></td>

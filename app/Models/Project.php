@@ -39,6 +39,10 @@ class Project extends Model
     {
         return $this->hasOne('App\Models\Sector', 'id', 'sector_id');
     }
+
+    public function sectors(){
+        return $this->belongsTo(Sector::class);
+    }
     
     // ministry object
     public function ministry()

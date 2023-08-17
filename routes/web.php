@@ -200,6 +200,12 @@ Route::get('project-records/construction-begins', 'App\Http\Controllers\WebsiteC
 Route::get('project-records/operations', 'App\Http\Controllers\WebsiteController@operations')->name('operations');
 Route::get('glossary', 'App\Http\Controllers\WebsiteController@glossary')->name('glossary');
 Route::get('faq', 'App\Http\Controllers\WebsiteController@faq')->name('faq');
+Route::get('graph', 'App\Http\Controllers\WebsiteController@graph')->name('graph');
+
+// web ajax for graph
+Route::get('projectPhases', 'App\Http\Controllers\WebsiteController@projectPhases')->name('projectPhases');
+Route::get('projectSector', 'App\Http\Controllers\WebsiteController@projectSector')->name('projectSector');
+Route::get('projcetMinistry', 'App\Http\Controllers\WebsiteController@projcetMinistry')->name('projcetMinistry');
 
 //Clear Cache facade value:
 //Clear Cache facade value:
