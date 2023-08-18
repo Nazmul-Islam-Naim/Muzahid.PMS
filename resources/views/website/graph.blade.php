@@ -1,12 +1,8 @@
 @extends('layouts.frontend-app')
 @section('content')
 
-<!-- Apex Charts -->
-{!!Html::script('custom/js/jquery.min.js')!!}
-{!!Html::script('custom/vendor/apex/apexcharts.min.js')!!}
-{!!Html::script('custom/vendor/apex/examples/column/project-phase.js')!!}
-{!!Html::script('custom/vendor/apex/examples/column/project-sector.js')!!}
-{!!Html::script('custom/vendor/apex/examples/column/project-ministry.js')!!}
+
+
 
 <!--Activity Area Start-->
 <div>
@@ -27,7 +23,7 @@
                         <h3 class="mb-3">Sectors: Here title is sector name and number is projects.</h3>
                         <div class="div" id="project-sector"></div>
                         <h3 class="mb-3">Ministries: Here title is ministry name and number is projects.</h3>
-                        <div class="div" id="project-ministry"></div>
+                        <div id="project-ministry"></div>
                     </div>
                 </div>
 				<!-- Card end -->
@@ -36,5 +32,13 @@
 		</div>
 		<!-- Row end -->
 </div>
+
+<!-- Apex Charts -->
+{!!Html::script('custom/js/jquery.min.js')!!}
+{!!Html::script('custom/vendor/apex/apexcharts.min.js')!!}
+{!!Html::script('custom/vendor/apex/examples/column/project-phase.js')!!}
+{!!Html::script('custom/vendor/apex/examples/column/project-sector.js')!!}
+{!!Html::script('custom/vendor/apex/examples/column/project-ministry.js')!!}
+
 <!--End of Activity Area-->
 @endsection

@@ -1,8 +1,4 @@
-$(function () {
-	projectSectorAjaxRequest();
-});
-
-function projectSectorAjaxRequest(){
+async function projectSectorAjaxRequest(){
 	var urlPath = null;
 	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 		urlPath = "http://" + window.location.host + "/projectSector";
@@ -10,20 +6,28 @@ function projectSectorAjaxRequest(){
 		urlPath = "https://" + window.location.host + "/projectSector";
 	}
 
-	$.ajax({
-		type: "GET",
-		url: urlPath,
-		dataType: "json",
-		success: function (response) {
-			projectSector(response);
-		}
-	});
+	try {
+        const response = await fetch(urlPath);
+        if (response.ok) {
+            const responseData = await response.json();
+			
+            const projectSectors = responseData.projectSectors || [];
+
+            if (projectSectors.length > 0) {
+                projectSector(projectSectors);
+            }
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+    }
 }
+
+projectSectorAjaxRequest()
 
 // sector array
 function sectorsArray(response){
 	const sectorArray = [];
-	(response.projectSectors).forEach(element => {
+	response.forEach(element => {
 		sectorArray.push(element.name);
 	});
 	return sectorArray;
@@ -31,7 +35,7 @@ function sectorsArray(response){
 // project array
 function projectArray(response){
 	const projectArray = [];
-	(response.projectSectors).forEach(element => {
+	response.forEach(element => {
 		projectArray.push(element.projects.length);
 	});
 	return projectArray;

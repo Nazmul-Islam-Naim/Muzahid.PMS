@@ -1,8 +1,4 @@
-$(function () {
-	projectPhasesAjaxRequest();
-});
-
-function projectPhasesAjaxRequest(){
+async function projectPhasesAjaxRequest(){
 	var urlPath = null;
 	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 		urlPath = "http://" + window.location.host + "/projectPhases";
@@ -10,15 +6,22 @@ function projectPhasesAjaxRequest(){
 		urlPath = "https://" + window.location.host + "/projectPhases";
 	}
 
-	$.ajax({
-		type: "GET",
-		url: urlPath,
-		dataType: "json",
-		success: function (response) {
-			projectPhases(response);
-		}
-	});
+	try {
+        const response = await fetch(urlPath);
+        if (response.ok) {
+            const responseData = await response.json();
+			
+            const phaseData = responseData || {};
+
+			projectPhases(phaseData);
+			
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+    }
 }
+
+projectPhasesAjaxRequest()
 
 function projectPhases(response){
 	var options = {

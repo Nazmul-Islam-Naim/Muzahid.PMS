@@ -1,8 +1,4 @@
-$(function () {
-	projcetMinistryAjaxRequest();
-});
-
-function projcetMinistryAjaxRequest(){
+async function projcetMinistryAjaxRequest(){
 	var urlPath = null;
 	if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 		urlPath = "http://" + window.location.host + "/projcetMinistry";
@@ -10,20 +6,27 @@ function projcetMinistryAjaxRequest(){
 		urlPath = "https://" + window.location.host + "/projcetMinistry";
 	}
 
-	$.ajax({
-		type: "GET",
-		url: urlPath,
-		dataType: "json",
-		success: function (response) {
-			projcetMinistry(response);
+	try {
+        const response = await fetch(urlPath);
+        if (response.ok) {
+            const responseData = await response.json();
+            const projectMinistries = responseData.projectMinistries || [];
+
+            if (projectMinistries.length > 0) {
+                projcetMinistry(projectMinistries);
+            }
 		}
-	});
+    } catch (error) {
+        console.error("Fetch error:", error);
+    }
 }
+
+projcetMinistryAjaxRequest();
 
 // ministry array
 function ministriesArray(response){
 	const ministryArray = [];
-	(response.projectMinistries).forEach(element => {
+	response.forEach(element => {
 		ministryArray.push(element.name);
 	});
 	return ministryArray;
@@ -31,7 +34,7 @@ function ministriesArray(response){
 // project array
 function ministryProject(response){
 	const ministryProject = [];
-	(response.projectMinistries).forEach(element => {
+	response.forEach(element => {
 		ministryProject.push(element.projects.length);
 	});
 	return ministryProject;
@@ -137,30 +140,34 @@ function projcetMinistry(response){
 			}
 		},
 		grid: {
-		borderColor: '#e0e6ed',
-		strokeDashArray: 5,
-		xaxis: {
-		  lines: {
-			show: true
-		  }
-		},   
-		yaxis: {
-		  lines: {
-			show: false,
-		  } 
-		},
-		padding: {
-		  top: 0,
-		  right: 0,
-		  bottom: 0,
-		  left: 0
-		}, 
-	  },
+			borderColor: '#e0e6ed',
+			strokeDashArray: 5,
+			xaxis: {
+				lines: {
+					show: true
+				}
+			},   
+			yaxis: {
+				lines: {
+					show: false,
+				} 
+			},
+			padding: {
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0
+			}, 
+	  	},
 		colors: ['#E40C78', '#2b86f5', '#63a9ff', '#95c5ff', '#c6e0ff'],
 	}
+
+	let el = document.querySelector("#project-ministry")
+
 	var chart = new ApexCharts(
-		document.querySelector("#project-ministry"),
+		el,
 		options
 	);
 	chart.render();
+
 }
