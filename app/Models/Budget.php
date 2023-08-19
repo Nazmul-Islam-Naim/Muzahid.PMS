@@ -36,4 +36,6 @@ class Budget extends Model
     {
         return $this->hasOne('App\Models\User', 'id', 'created_by');
     }
+
+    
 }

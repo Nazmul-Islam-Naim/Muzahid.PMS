@@ -47,6 +47,18 @@
       justify-content: center
   }
 
+  
+  .titleBackground{
+        background-color: #af3ec6;
+        padding-top: 18px;
+        padding-bottom: 0px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    h5{
+        color: white;
+    }
+
 
   /* // header responsive */
   @media only screen and (max-width: 650px) {
@@ -168,7 +180,7 @@
 
 <!--Activity Area Start-->
 <div>
-    <div class="container mt-5">
+    <div class="container titleBackground mt-5">
         <h5>PPP Sector List</h5>
     <hr>
     </div>

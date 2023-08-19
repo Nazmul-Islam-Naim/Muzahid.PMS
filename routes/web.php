@@ -163,6 +163,9 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('recovery-form/{id}', 'App\Http\Controllers\BudgetRecoveryController@recoveryForm')->name('recovery-form');
         Route::get('recovery-report', 'App\Http\Controllers\BudgetRecoveryController@recoveryReport')->name('recovery-report');
         Route::get('recovery-amendment', 'App\Http\Controllers\BudgetRecoveryController@recoveryAmendment')->name('recovery-amendment');
+
+        
+        Route::get('combined-report', 'App\Http\Controllers\PPTFReportController@combinedReport')->name('combined-report');
     });
    
 

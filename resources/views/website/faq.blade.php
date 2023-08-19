@@ -1,15 +1,27 @@
 @extends('layouts.frontend-app')
 @section('content')
-
+<style>
+  .titleBackground{
+        background-color: #1dbad6;
+        padding-top: 18px;
+        padding-bottom: 0px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    h5{
+        color: white;
+    }
+</style>
 <!--Activity Area Start-->
 <div>
-    <div class="container text-center mt-5">
-        <h3>PPP FAQ</h3>
+    <div class="container titleBackground mt-5">
+        <h5>PPP FAQ</h5>
+        <hr>
     </div>
 </div>
 <div class="container">
     <!-- Row start -->
-		<div class="row gutters">
+		<div class="row">
 			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
                 <!-- Card start -->

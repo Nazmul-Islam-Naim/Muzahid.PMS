@@ -1,15 +1,34 @@
 @extends('layouts.frontend-app')
 @section('content')
 
-
-
+<style>
+    .phaseProject{
+        background-color: #9b4bad;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .sectorProject{
+        background-color: #35a471;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    .ministryProject{
+        background-color: #e7308b;
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    h3{
+        color: white;
+    }
+</style>
 
 <!--Activity Area Start-->
-<div>
-    <div class="container text-center mt-5">
-        <h3>Graph</h3>
-    </div>
-</div>
 <div class="container">
     <!-- Row start -->
 		<div class="row gutters">
@@ -18,11 +37,17 @@
                 <!-- Card start -->
 				<div class="card">
                     <div class="card-body">
-                        <h3 class="mb-3">Phases: Here title is phase name and number is projects.</h3>
+                        <div class="phaseProject">
+                            <h3>Phase wise projects</h3>
+                        </div>
                         <div class="div" id="project-phase"></div>
-                        <h3 class="mb-3">Sectors: Here title is sector name and number is projects.</h3>
+                        <div class="sectorProject">
+                            <h3>Sector wise projects</h3>
+                        </div>
                         <div class="div" id="project-sector"></div>
-                        <h3 class="mb-3">Ministries: Here title is ministry name and number is projects.</h3>
+                        <div class="ministryProject">
+                            <h3>Ministry wise porjects</h3>
+                        </div>
                         <div id="project-ministry"></div>
                     </div>
                 </div>

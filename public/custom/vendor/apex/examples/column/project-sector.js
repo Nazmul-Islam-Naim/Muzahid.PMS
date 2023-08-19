@@ -44,7 +44,7 @@ function projectArray(response){
 function projectSector(response){
 	var options = {
 		chart: {
-			height: 300,
+			height: 450,
 			type: 'bar',
 			dropShadow: {
 				enabled: true,
@@ -80,7 +80,13 @@ function projectSector(response){
 			categories: sectorsArray(response),
 			position: 'top',
 			labels: {
-				offsetY: -18,
+				offsetY: -10,
+				rotate: -90,
+				rotateAlways: true,
+				style: {
+					color: 'Blue',
+					fontWeight: 500
+				}
 			},
 			axisBorder: {
 				show: false
@@ -126,13 +132,14 @@ function projectSector(response){
 			},
 			labels: {
 				show: false,
+				position: "left",
 				formatter: function (val) {
 					return val;
 				}
 			}
 		},
 		title: {
-			text: 'Monthly Inflation in Argentina, 2018',
+			text: '',
 			floating: true,
 			offsetY: 320,
 			align: 'center',

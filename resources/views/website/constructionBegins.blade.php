@@ -3,12 +3,22 @@
 <style>
    table.dataTable th {
     background: #186b59;
-}
+  }
+  .titleBackground{
+        background-color: #266faf;
+        padding-top: 18px;
+        padding-bottom: 0px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    h5{
+        color: white;
+    }
 </style>
 
 <!--Activity Area Start-->
 <div>
-    <div class="container mt-5">
+    <div class="container titleBackground mt-5">
         <h5>PPP Projects in Construction Stage</h5>
     <hr>
     </div>

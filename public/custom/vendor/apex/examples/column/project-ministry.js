@@ -79,7 +79,13 @@ function projcetMinistry(response){
 			categories: ministriesArray(response),
 			position: 'top',
 			labels: {
-				offsetY: -18,
+				offsetY: -10,
+				rotate: -90,
+				rotateAlways: true,
+				style: {
+					color: 'Blue',
+					fontWeight: 500
+				}
 			},
 			axisBorder: {
 				show: false
@@ -131,7 +137,7 @@ function projcetMinistry(response){
 			}
 		},
 		title: {
-			text: 'Monthly Inflation in Argentina, 2018',
+			text: '',
 			floating: true,
 			offsetY: 320,
 			align: 'center',

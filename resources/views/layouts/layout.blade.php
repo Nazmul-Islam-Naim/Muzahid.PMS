@@ -695,6 +695,7 @@
                                     $url==config('app.budget').'/add-extra-percent'  || $url==config('app.budget').'/add-extra-percent/create'|| $url==(request()->is(config('app.budget').'/add-extra-percent/*/edit')) ||
                                     $url==config('app.budget').'/recovery'  || $url==config('app.budget').'/recovery/create'|| $url==(request()->is(config('app.budget').'/recovery/*/edit')) ||
                                     $url==config('app.budget').'/recovery-report' ||
+                                    $url==config('app.budget').'/combined-report' ||
                                     $url==config('app.budget').'/recovery-amendment') ? 'active':''}}">
                                     <a href="javascript::void(0)">
                                         <i class="icon-dollar-sign"></i>
@@ -715,6 +716,9 @@
                                             @can('app.fundRecovery.report')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.budget').'/recovery-report'}}" class="{{($url==config('app.budget').'/recovery-report') ? 'current-page':''}}">Recovery Report</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{$baseUrl.'/'.config('app.budget').'/combined-report'}}" class="{{($url==config('app.budget').'/combined-report') ? 'current-page':''}}">Combined Report</a>
                                             </li>
                                             @endcan
                                             @can('app.fundRecovery.amendment')
