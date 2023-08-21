@@ -19,8 +19,8 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::group(['middleware'=>['auth']],function(){
-	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 	Route::get('/webView', [App\Http\Controllers\HomeController::class, 'webView'])->name('webView');
+	Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
     //******** utility part *******//
@@ -166,6 +166,7 @@ Route::group(['middleware'=>['auth']],function(){
 
         
         Route::get('combined-report', 'App\Http\Controllers\PPTFReportController@combinedReport')->name('combined-report');
+        Route::get('individual-report/{id}', 'App\Http\Controllers\PPTFReportController@individulaReport')->name('individual-report');
     });
    
 

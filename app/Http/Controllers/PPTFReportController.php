@@ -10,7 +10,10 @@ class PPTFReportController extends Controller
     /**
      * idividual ledger
      */
-    public function individulaReport(){
+    public function individulaReport($id){
+        $data['individulaReport'] = Budget::findOrFail($id);
+        $data['combinedReports'] = Budget::all();
+        return view('pptfReport.individulaReport', $data);
 
     }
 

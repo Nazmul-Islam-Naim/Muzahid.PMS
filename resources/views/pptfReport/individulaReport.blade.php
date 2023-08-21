@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'PPTF Combined Report')
+@section('title', 'PPTF Individual Report')
 @section('content')
 <!-- Content Header (Page header) -->
 <?php
@@ -23,14 +23,58 @@
         <!-- general form elements -->
         <div class="card card-primary">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h3 class="card-title">PPTF Combined Report</h3>
+            <h3 class="card-title">PPTF Individual Report</h3>
                 
             <a onclick="printReport();" href="javascript:0;"><img class="img-thumbnail" style="width:30px;" src='{{asset("custom/img/print.png")}}'></a>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
             <div class="col-md-12" id="printTable">
-              <center><h5 style="margin: 0px">PPTF Combined Report</h5></center>
+              <div class="col-md-8">
+                <table style="width: 60%; font-size: 12px;" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr>
+                      <td colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Contracting Agency (CA)</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Transaction Advisior (TA)</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Transaction Advisior (TA) Period</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">TA Appointing Authority</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Project Value</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px">Contract Value</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px">USD</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px">BDT</td>
+                    </tr>
+                    <tr>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px">Amount already paid</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                    <tr>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px">Rest Amount</td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                      <td  style="border: 1px solid #ddd; padding: 3px 3px"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <center><h5 style="margin: 0px">PPTF Individual Report</h5></center>
               <div class="table-responsive">
                 <table class="" style="width: 100%; font-size: 12px; text-align:center" cellspacing="0" cellpadding="0">  
                   <thead> 
@@ -39,16 +83,12 @@
                     <tr > 
                       <th rowspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">Sl</th>
                       <th rowspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">Project name</th>
-                      <th rowspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">Transaction Advisor (TA)</th>
-                      <th rowspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">TA Appointing Authority</th>
+                      <th rowspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">Mailstone</th>
                       <th colspan="6"  style="border: 1px solid #ddd; padding: 3px 3px">TA Contract Value</th>
                       <th colspan="6"  style="border: 1px solid #ddd; padding: 3px 3px">Paid Status</th>
-                      <th colspan="6"  style="border: 1px solid #ddd; padding: 3px 3px">Unpaid/Remaining Status</th>
                       <th colspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Returned</th>
                     </tr>
                     <tr > 
-                      <th colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">USD</th>
-                      <th colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">BDT</th>
                       <th colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">USD</th>
                       <th colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">BDT</th>
                       <th colspan="3"  style="border: 1px solid #ddd; padding: 3px 3px">USD</th>
@@ -57,12 +97,6 @@
                       <th rowspan="2"  style="border: 1px solid #ddd; padding: 3px 3px">Success Fee</th>
                     </tr>
                     <tr > 
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Party</th>
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Vat</th>
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Tax</th>
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Party</th>
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Vat</th>
-                      <th style="border: 1px solid #ddd; padding: 3px 3px">Tax</th>
                       <th style="border: 1px solid #ddd; padding: 3px 3px">Party</th>
                       <th style="border: 1px solid #ddd; padding: 3px 3px">Vat</th>
                       <th style="border: 1px solid #ddd; padding: 3px 3px">Tax</th>
@@ -123,11 +157,8 @@
                     ?>
                     <tr > 
                       <td style="border: 1px solid #ddd; padding: 3px 3px">{{$rowCount}}</td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">
-                        <a href="{{route('individual-report', $data->project_id)}}">{{$data->project->name ?? ''}}</a>
-                      </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{$data->contract_amount}} <sub>{{$data->currency_type}}</sub></td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{$data->project->partner->name ?? 'PPPA'}}</td>
+                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{$data->project->name ?? ''}}</td>
+                      <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'USD') ? $USDContract : ''}}</td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
@@ -137,13 +168,7 @@
                       <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'USD') ? $USDPayment : ''}}</td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'BDT') ? $BDTPayment : ''}}</td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'USD') ? ($USDPayment - $USDRecovery) : ''}}</td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
-                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'BDT') ? ($BDTPayment - $BDTRecovery) : ''}}</td>
+                      <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'USD') ? $USDPayment : ''}}</td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px"> </td>
                       <td style="border: 1px solid #ddd; padding: 3px 3px">{{($data->currency_type == 'BDT') ? $BDTPayment : $USDPayment}}</td>
@@ -152,7 +177,7 @@
                     @endforeach
                     @if($rowCount==0)
                     <tr>
-                      <td colspan="24" align="center">
+                      <td colspan="17" align="center">
                         <h4 style="color: #ccc">No Data Found . . .</h4>
                       </td>
                     </tr>
@@ -160,7 +185,7 @@
                   </tbody>
                   <tfoot> 
                     <tr> 
-                      <td colspan="24" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"><center><b>Total</b></center></td>
+                      <td colspan="17" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"><center><b>Total</b></center></td>
                     </tr>
                   </tfoot>
                 </table>

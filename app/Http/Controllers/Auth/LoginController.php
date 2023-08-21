@@ -44,7 +44,7 @@ class LoginController extends Controller
         if (Auth::user()->user_type==4 || Auth::user()->user_type==5) {
             return '/';
         } else {
-            return '/home';
+            return '/webView';
         }
     }
 }
