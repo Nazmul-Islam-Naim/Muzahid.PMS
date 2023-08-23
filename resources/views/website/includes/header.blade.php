@@ -133,6 +133,8 @@
                                     href="{{ route('graph') }}">Graph</a></li>
                             @if (auth()->user())
                             <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
+                                    href="{{ route('pptaf') }}">PPPTAF</a></li>
+                            <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
                                     href="{{ route('home') }}">Edit Mode</a></li>
                             @else
                             <li class="current"><a style="line-height:30px; color:white; text-decoration:none"
@@ -182,7 +184,7 @@
                                                 href="{{ route('phase', 'award-phase') }}">Award Phase</a></li>
                                         <li>
                                             <a style="text-decoration:none; background:#eee;"
-                                            href="{{ route('phase', 'implementation-phase') }}">
+                                            href="#">
                                             Implementation Phase</i>
                                         </a>
                                                 <ul class="">
@@ -212,6 +214,9 @@
                                         style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
                                         href="{{ route('graph') }}">Graph</a></li>
                                 @if (auth()->user())
+                                <li class="current"><a
+                                        style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
+                                        href="{{ route('pptaf') }}">PPPTAF</a></li>
                                 <li class="current"><a
                                         style="line-height:30px; background:#eee; color:#186B59; text-decoration:none"
                                         href="{{ route('home') }}">Edit Mode</a></li>

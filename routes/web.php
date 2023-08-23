@@ -189,6 +189,11 @@ Route::group(['middleware'=>['auth']],function(){
     Route::put('update-site-theme/{id}', 'App\Http\Controllers\SettingController@saveSiteTheme')->name('update-site-theme');
 
     Route::get('settings', 'App\Http\Controllers\SettingController@index');
+
+    // pptf common view
+    Route::get('pptaf', 'App\Http\Controllers\WebsiteController@pptaf')->name('pptaf');
+    Route::get('pptaf/individual/{id}', 'App\Http\Controllers\WebsiteController@pptafIndividual')->name('pptaf-individual');
+    
 });
 
 //******** Website part *******//

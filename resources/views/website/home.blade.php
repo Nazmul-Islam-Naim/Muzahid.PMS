@@ -19,6 +19,7 @@
       outline: none;
       font-size: 0.7rem;
       font-weight: 600;
+      color: white;
       letter-spacing: 0.7px;
   }
 
@@ -81,17 +82,17 @@
 
       <div class="row  g-3">
           <div class="col-4" style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#E40C78"> Ministries </button>
+              <a href="{{route('ministries')}}" class="headerNavBtn" style="background-color:#E40C78">Ministries </a>
               <div class="headerNavBtn-badge" style="background-color:#E40C78"> {{$ministries}} </div>
           </div>
 
           <div class="col-4" style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#af3ec6"> Sectors </button>
+              <a href="{{route('sectors')}}" class="headerNavBtn" style="background-color:#af3ec6"> Sectors</a>
               <div class="headerNavBtn-badge" style="background-color:#af3ec6"> {{$sectors}} </div>
           </div>
 
           <div class="col-4 " style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#1d7dd6"> Projects </button>
+              <a href="{{route('web-project-list')}}" class="headerNavBtn" style="background-color:#1d7dd6"> Projects</a> 
               <div class="headerNavBtn-badge" style="background-color:#1d7dd6"> {{$projects}} </div>
           </div>
       </div>
@@ -108,23 +109,23 @@
 
       <div class="row g-3">
           <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#14acce"> Identification  </button>
+              <a href="{{route('phase', 'identification-phase')}}" class="headerNavBtn" style="background-color:#14acce"> Identification  </a>
               <div class="headerNavBtn-badge" style="background-color:#14acce"> {{$identitifications}} </div>
           </div>
 
           <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#2bc2c0"> Development  </button>
+              <a href="{{route('phase', 'development-phase')}}" class="headerNavBtn" style="background-color:#2bc2c0"> Development  </a>
               <div class="headerNavBtn-badge" style="background-color:#2bc2c0"> {{$developments}} </div>
           </div>
 
           <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#30c982"> Procurement  </button>
+              <a href="{{route('phase', 'procurement-phase')}}" class="headerNavBtn" style="background-color:#30c982"> Procurement  </a>
               <div class="headerNavBtn-badge" style="background-color:#30c982"> {{$procurements}} </div>
           </div>
 
           <div class="col-6 col-sm-4 col-md-3 " style="display:flex; align-items-center">
-              <button class="headerNavBtn" style="background-color:#d69e1d"> Award </button>
-              <div class="headerNavBtn-badge" style="background-color:#d69e1d"> {{$awards}} </div>
+              <a href="{{route('phase', 'award-phase')}}" class="headerNavBtn" style="background-color:#16a396"> Award </a>
+              <div class="headerNavBtn-badge" style="background-color:#16a396"> {{$awards}} </div>
           </div>
       </div>
   </div>
@@ -132,20 +133,20 @@
 
   <div class="container d-flex flex-column align-items-center justify-content-center mb-5">
       <div class=" col-sm-12 col-md-12 d-flex  align-items-center  justify-content-center mb-3" style="background-color:#cd2182" >
-          <button class="headerNavBtn" style="background-color:#cd2182"> Implementation Stage </button>
+          <a href="{{route('phase', 'implementation-phase')}}" class="headerNavBtn" style="background-color:#cd2182"> Implementation Stage </a>
           <div class="headerNavBtn-badge" style="background-color:#cd2182"> {{$implementations}} </div>
       </div>
       <div class="d-flex flex-wrap items-center justify-content-center gap-3">
         <div class="d-flex items-center">
-        <button type="button" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0" style="background-color:#b23939"> CP </button>
+        <a href="{{route('cp-obligations')}}" class="headerNavSubBtn btn btn-secondary mb-1 rounded-0" style="background-color:#b23939"> CP </a>
         <div class="headerNavBtn-badge" style="background-color:#b23939"> {{$cps}} </div>
         </div>
         <div class="d-flex items-center">
-          <button type="button" class="headerNavSubBtn btn btn-success mb-1 rounded-0" style="background-color:#266faf"> Constructions </button>
+          <a href="{{route('construction-begins')}}" class="headerNavSubBtn btn btn-success mb-1 rounded-0" style="background-color:#266faf"> Constructions </a>
           <div class="headerNavBtn-badge" style="background-color:#266faf"> {{$constructions}} </div>
           </div>
           <div class="d-flex items-center">
-            <button type="button" class="headerNavSubBtn btn btn-danger mb-1 rounded-0" style="background-color:#1dbad6"> Operations </button>
+            <a href="{{route('operations')}}" class="headerNavSubBtn btn btn-danger mb-1 rounded-0" style="background-color:#1dbad6"> Operations </a>
             <div class="headerNavBtn-badge" style="background-color:#1dbad6"> {{$operations}} </div>
             </div>
       </div>

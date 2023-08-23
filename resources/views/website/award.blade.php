@@ -6,7 +6,7 @@
   }
 
   .titleBackground{
-        background-color: #d69e1d;
+        background-color: #16a396;
         padding-top: 18px;
         padding-bottom: 0px;
         border-radius: 5px;

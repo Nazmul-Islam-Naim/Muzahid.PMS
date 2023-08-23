@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Budget;
 use App\Models\FAQ;
 use App\Models\Glossary;
 use App\Models\ImplementingAgency;
@@ -212,6 +213,18 @@ class WebsiteController extends Controller
     public function graph(){
         return view('website.graph');
     }
+    // pptaf combined report
+    public function pptaf(){
+        $data['combinedReports'] = Budget::all();
+        return view('website.pptaf', $data);
+    }
+    // pptaf indivdual report
+    public function pptafIndividual($id){
+        $data['individulaReport'] = Budget::findOrFail($id);
+        $data['combinedReports'] = Budget::all();
+        return view('website.pptafIndividual', $data);
+    }
+
     // projectPhases
     public function projectPhases(){
         $data['identitifications'] = Project::where('phase_id',1)->count();

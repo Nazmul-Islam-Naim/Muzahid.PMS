@@ -1,148 +1,199 @@
-@extends('layouts.frontend-app')
+@extends('layouts.layout')
+@section('title', 'Project Profile')
 @section('content')
-<!-- Bootstrap css -->
-{!!Html::style('custom/css/bootstrap.min.css')!!}
-<style>
-   table.dataTable th {
-    background: #186b59;
-   }
-
-</style>
 <!-- Content wrapper scroll start -->
 <div class="content-wrapper-scroll">
   <!-- Content wrapper start -->
-  <div class="content-wrapper"    style="
+  <div class="content-wrapper" tyle="
   max-width:1290px;
   width: 100%;
   height: 100%;
   margin: 0 auto;
   overflow:hidden
-  " >
+  ">
     <!-- Row start -->
-    <div class="row gutters" >
-       <div class="text-center">
-            <h5 class="card-title">Profile Of "{{$single_data->name}}"</h5>
-            <p><small> Updated At: {{$single_data->updated_at}}</small></p>
-            <span class="badge bg-warning">Running</span>
+    <div class="row gutters">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+        <h5 class="card-title">Profile Of "{{$single_data->name}}"</h5>
+        <p><small> Updated At: {{$single_data->updated_at}}</small></p>
+        <span class="badge" style="background-color: #d4a112">Running</span>
       </div>
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-      <?php 
-        //--------------------------------------- set progress color -----------------------------------------//
-        $color1 =''; 
-        $color2 =''; 
-        $color3 =''; 
-        $color4 =''; 
-        $color5 =''; 
-        $notyet ='Not Yet'; 
-        //--------------------------------------- identitification phase -----------------------------------------//
-        $color1of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->count();
-        $phase1details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->get();
-        if ( ($color1of1 > 0) &&  ($color1of1 < 4) ) {
-          $color1 = 'warning';
-        } elseif( ($color1of1 == 4) || ($color1of1 > 4)) {
-          $color1 = 'info';
-        }else{
-          $color1 = 'info';
-        }
-        
-        //--------------------------------------- development phase -----------------------------------------//
-        $color2of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->count();
-        $phase2details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->get();
-        if ( ($color2of1 > 0) && ($color2of1 < 10) ) {
-          $color2 = 'warning';
-        } elseif( ($color2of1 == 10) || ($color2of1 > 10)) {
-          $color2 = 'info';
-        }else{
-          $color2 = 'info';
-        }
-        
-        //--------------------------------------- procurement phase -----------------------------------------//
-        $color3of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->count();
-        $phase3details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->get();
-        if ( ($color3of1 > 0) &&  ($color3of1 < 8) ) {
-          $color3 = 'warning';
-        } elseif( ($color3of1 == 8) || ($color3of1 > 8)) {
-          $color3 = 'info';
-        }else{
-          $color3 = 'info';
-        }
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <?php 
+          //--------------------------------------- set progress color -----------------------------------------//
+          $color1 =''; 
+          $color2 =''; 
+          $color3 =''; 
+          $color4 =''; 
+          $color5 =''; 
+          $notyet ='Not Yet'; 
+          //--------------------------------------- identitification phase -----------------------------------------//
+          $color1of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->count();
+          $phase1details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->get();
+          if ( ($color1of1 > 0) &&  ($color1of1 < 4) ) {
+            $color1 = '#d4a112 ';
+          } elseif( ($color1of1 == 4) || ($color1of1 > 4)) {
+            $color1 = '#14acce';
+          }else{
+            $color1 = '#14acce';
+          }
+          
+          //--------------------------------------- development phase -----------------------------------------//
+          $color2of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->count();
+          $phase2details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->get();
+          if ( ($color2of1 > 0) && ($color2of1 < 10) ) {
+            $color2 = '#d4a112 ';
+          } elseif( ($color2of1 == 10) || ($color2of1 > 10)) {
+            $color2 = '#2bc2c0';
+          }else{
+            $color2 = '#2bc2c0';
+          }
+          
+          //--------------------------------------- procurement phase -----------------------------------------//
+          $color3of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->count();
+          $phase3details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->get();
+          if ( ($color3of1 > 0) &&  ($color3of1 < 8) ) {
+            $color3 = '#d4a112 ';
+          } elseif( ($color3of1 == 8) || ($color3of1 > 8)) {
+            $color3 = '#30c982';
+          }else{
+            $color3 = '#30c982';
+          }
 
-        //--------------------------------------- award phase -----------------------------------------//
-        $color4of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',4]])->count();
-        $phase4details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',4]])->get();
-        if ( ($color4of1 > 0) &&  ($color4of1 < 6) ) {
-          $color4 = 'warning';
-        } elseif( ($color4of1 == 6) || ($color4of1 > 6)) {
-          $color4 = 'info';
-        }else{
-          $color4 = 'info';
-        }
+          //--------------------------------------- award phase -----------------------------------------//
+          $color4of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',4]])->count();
+          $phase4details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',4]])->get();
+          if ( ($color4of1 > 0) &&  ($color4of1 < 6) ) {
+            $color4 = '#d4a112 ';
+          } elseif( ($color4of1 == 6) || ($color4of1 > 6)) {
+            $color4 = '#16a396';
+          }else{
+            $color4 = '#16a396';
+          }
 
-        //--------------------------------------- implementation phase -----------------------------------------//
-        $color5of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',5]])->count();
-        $phase5details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',5]])->get();
-        if ( ($color5of1 > 0) &&  ($color5of1 < 2) ) {
-          $color5 = 'warning';
-        } elseif( ($color5of1 == 2) || ($color5of1 > 2)) {
-          $color5 = 'info';
-        }else{
-          $color5 = 'info';
-        }
-      ?>
-      <div class="progress" style="height:25px ; background:#ffffff; margin-top: 20px;">
-        <div class="progress-bar bg-{{$color1}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
-          <p>
-            <a class="btn btn-{{$color1}}" id="Ident" data-bs-toggle="collapse" href="#Identification" role="button" aria-expanded="false" aria-controls="Identification">
-              Identification
-            </a>
-          </p>
+          //--------------------------------------- implementation phase -----------------------------------------//
+          $color5of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',5]])->count();
+          $phase5details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',5]])->get();
+          if ( ($color5of1 > 0) &&  ($color5of1 < 3) ) {
+            $color5 = '#d4a112 ';
+          } elseif( ($color5of1 == 3) || ($color5of1 > 3)) {
+            $color5 = '#cd2182';
+          }else{
+            $color5 = '#cd2182';
+          }
+        ?>
+        <div class="progress" style="height:35px ; background:#ffffff; margin-top: 10px;">
+          <div class="progress-bar" role="progressbar" style="background-color:{{$color1??'#14acce'}}; width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+            <p>
+              <a class="btn" id="Ident" style="background-color:{{$color1??'#14acce'}}; color:white;" data-bs-toggle="collapse" href="#Identification" role="button" aria-expanded="false" aria-controls="Identification">
+                Identification
+              </a>
+            </p>
+          </div>
+          <div class="progress-bar" role="progressbar" style="background-color:{{$color2??'#2bc2c0'}}; width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <p>
+              <a class="btn" id="Dev" style="background-color:{{$color2??'#2bc2c0'}}; color:white;" data-bs-toggle="collapse" href="#Development" role="button" aria-expanded="false" aria-controls="Development">
+              Development
+              </a>
+            </p>
+          </div>
+          <div class="progress-bar" role="progressbar" style="background-color:{{$color3??'#30c982'}}; width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <p>
+              <a class="btn" id="Pro" style="background-color:{{$color3??'#30c982'}}; color:white;" data-bs-toggle="collapse" href="#Procurement" role="button" aria-expanded="false" aria-controls="Procurement">
+              Procurement
+              </a>
+            </p>
+          </div>
+          <div class="progress-bar" role="progressbar" style="background-color:{{$color4??'#16a396'}};width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <p>
+              <a class="btn" id="Awa" style="background-color:{{$color4??'#16a396'}}; color:white;" data-bs-toggle="collapse" href="#Award" role="button" aria-expanded="false" aria-controls="Award">
+                Award
+              </a>
+            </p>
+          </div>
+          <div class="progress-bar" role="progressbar" style="background-color:{{$color5??'#cd2182'}};width: 20%; padding:19px; border-radius:0px;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <p>
+              <a class="btn" id="Imp" style="background-color:{{$color5??'#cd2182'}}; color:white;" data-bs-toggle="collapse" href="#Implementation" role="button" aria-expanded="false" aria-controls="Implementation">
+                Implementation
+              </a>
+            </p>
+          </div>
         </div>
-        <div class="progress-bar bg-{{$color2}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-          <p>
-            <a class="btn btn-{{$color2}}" id="Dev" data-bs-toggle="collapse" href="#Development" role="button" aria-expanded="false" aria-controls="Development">
-            Development
-            </a>
-          </p>
+        <div class="collapse mt-2" id="Identification">
+            <div class="card card-body" style="background-color:{{$color1??'#14acce'}}; color:white;">
+              <div class="table-responsive">
+                  <table class="table table-bordered" style="background-color:{{$color1??'#14acce'}}; color:white;">
+                      <tbody>
+                        <tr>
+                          <td colspan="3" style="text-align:center">Identification Phase Status</td>
+                        </tr> 
+                        <tr>
+                          <td>Date</td>
+                          <td colspan="2">Description</td>
+                        </tr> 
+                        @if(count($phase1details))
+                        @foreach($phase1details as $p1d)
+                        <tr>
+                          <td>{{date('d-m-Y',strtotime($p1d->date))}}</td>
+                          <td colspan="2">{{$p1d->des}}</td>
+                        </tr>
+                        @endforeach
+                        @else
+                        <tr>
+                          <td colspan="3" style="text-align:center">No data found...........</td>
+                        </tr>
+                        @endif
+                      </tbody>
+                  </table>
+              </div>
+            </div>
         </div>
-        <div class="progress-bar bg-{{$color3}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-          <p>
-            <a class="btn btn-{{$color3}}" id="Pro" data-bs-toggle="collapse" href="#Procurement" role="button" aria-expanded="false" aria-controls="Procurement">
-            Procurement
-            </a>
-          </p>
-        </div>
-        <div class="progress-bar bg-{{$color4}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px;margin-right:15px" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-          <p>
-            <a class="btn btn-{{$color4}}" id="Awa" data-bs-toggle="collapse" href="#Award" role="button" aria-expanded="false" aria-controls="Award">
-              Award
-            </a>
-          </p>
-        </div>
-        <div class="progress-bar bg-{{$color5}}" role="progressbar" style="width: 20%; padding:19px; border-radius:0px;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
-          <p>
-            <a class="btn btn-{{$color5}}" id="Imp" data-bs-toggle="collapse" href="#Implementation" role="button" aria-expanded="false" aria-controls="Implementation">
-              Implementation
-            </a>
-          </p>
-        </div>
-      </div>
-      <div class="collapse" id="Identification">
-          <div class="card card-body" style="background-color:#eee">
-            <div class="table-responsive">
-                <table class="table table-bordered">
+        <div class="collapse mt-2" id="Development">
+            <div class="card card-body" style="background-color:{{$color2??'#2bc2c0'}}; color:white;">
+              <div class="table-responsive">
+                <table class="table table-bordered" style="background-color:{{$color2??'#2bc2c0'}}; color:white;">
                     <tbody>
                       <tr>
-                        <td colspan="3" style="text-align:center">Phase Status</td>
+                        <td colspan="3" style="text-align:center; color:#fff;">Development Phase Status</td>
+                      </tr> 
+                      <tr>
+                        <td  sytle="color:#fff">Date</td>
+                        <td colspan="2"  sytle="color:#fff">Description</td>
+                      </tr> 
+                      @if(count($phase2details))
+                      @foreach($phase2details as $p2d)
+                      <tr>
+                        <td>{{date('d-m-Y',strtotime($p2d->date))}}</td>
+                        <td colspan="2"  sytle="color:#fff">{{$p2d->des}}</td>
+                      </tr>
+                      @endforeach
+                      @else
+                      <tr>
+                        <td colspan="3" style="text-align:center; color:#fff;">No data found...........</td>
+                      </tr>
+                      @endif
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <div class="collapse mt-2" id="Procurement">
+            <div class="card card-body" style="background-color:{{$color3??'#30c982'}}; color:white;">
+              <div class="table-responsive">
+                <table class="table table-bordered" style="background-color:{{$color3??'#30c982'}}; color:white;">
+                    <tbody>
+                      <tr>
+                        <td colspan="3" style="text-align:center">Procurement Phase Status</td>
                       </tr> 
                       <tr>
                         <td>Date</td>
                         <td colspan="2">Description</td>
                       </tr> 
-                      @if(count($phase1details))
-                      @foreach($phase1details as $p1d)
+                      @if(count($phase3details))
+                      @foreach($phase3details as $p3d)
                       <tr>
-                        <td>{{date('d-m-Y',strtotime($p1d->date))}}</td>
-                        <td colspan="2">{{$p1d->des}}</td>
+                        <td>{{date('d-m-Y',strtotime($p3d->date))}}</td>
+                        <td colspan="2">{{$p3d->des}}</td>
                       </tr>
                       @endforeach
                       @else
@@ -152,129 +203,69 @@
                       @endif
                     </tbody>
                 </table>
+              </div>
             </div>
-          </div>
-      </div>
-      <div class="collapse" id="Development">
-          <div class="card card-body" style="background-color:#81b8ac; color:#fff">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td colspan="3" style="text-align:center; color:#fff;">Phase Status</td>
-                    </tr> 
-                    <tr>
-                      <td  sytle="color:#fff">Date</td>
-                      <td colspan="2"  sytle="color:#fff">Description</td>
-                    </tr> 
-                    @if(count($phase2details))
-                    @foreach($phase2details as $p2d)
-                    <tr>
-                      <td>{{date('d-m-Y',strtotime($p2d->date))}}</td>
-                      <td colspan="2"  sytle="color:#fff">{{$p2d->des}}</td>
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                      <td colspan="3" style="text-align:center; color:#fff;">No data found...........</td>
-                    </tr>
-                    @endif
-                  </tbody>
-              </table>
+        </div>
+        <div class="collapse mt-2" id="Award">
+            <div class="card card-body" style="background-color:{{$color4??'#42cbb8'}}; color:white;">
+              <div class="table-responsive">
+                <table class="table table-bordered" style="background-color:{{$color4??'#42cbb8'}}; color:white;">
+                    <tbody>
+                      <tr>
+                        <td colspan="3" style="text-align:center">Award Phase Status</td>
+                      </tr> 
+                      <tr>
+                        <td>Date</td>
+                        <td colspan="2">Description</td>
+                      </tr> 
+                      @if(count($phase4details))
+                      @foreach($phase4details as $p4d)
+                      <tr>
+                        <td>{{date('d-m-Y',strtotime($p4d->date))}}</td>
+                        <td colspan="2">{{$p4d->des}}</td>
+                      </tr>
+                      @endforeach
+                      @else
+                      <tr>
+                        <td colspan="3" style="text-align:center">No data found...........</td>
+                      </tr>
+                      @endif
+                    </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-      </div>
-      <div class="collapse" id="Procurement">
-          <div class="card card-body" style="background-color:#81b8ac; color:#fff">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td colspan="3" style="text-align:center">Phase Status</td>
-                    </tr> 
-                    <tr>
-                      <td>Date</td>
-                      <td colspan="2">Description</td>
-                    </tr> 
-                    @if(count($phase3details))
-                    @foreach($phase3details as $p3d)
-                    <tr>
-                      <td>{{date('d-m-Y',strtotime($p3d->date))}}</td>
-                      <td colspan="2">{{$p3d->des}}</td>
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                      <td colspan="3" style="text-align:center">No data found...........</td>
-                    </tr>
-                    @endif
-                  </tbody>
-              </table>
+        </div>
+        <div class="collapse mt-2" id="Implementation">
+            <div class="card card-body" style="background-color:{{$color5??'#cd2182'}}; color:white;">
+              <div class="table-responsive">
+                <table class="table table-bordered" style="background-color:{{$color5??'#cd2182'}}; color:white;">
+                    <tbody>
+                      <tr>
+                        <td colspan="3" style="text-align:center">Implementation Phase Status</td>
+                      </tr> 
+                      <tr>
+                        <td>Date</td>
+                        <td colspan="2">Description</td>
+                      </tr> 
+                      @if(count($phase5details))
+                      @foreach($phase5details as $p5d)
+                      <tr>
+                        <td>{{date('d-m-Y',strtotime($p5d->date))}}</td>
+                        <td colspan="2">{{$p5d->des}}</td>
+                      </tr>
+                      @endforeach
+                      @else
+                      <tr>
+                        <td colspan="3" style="text-align:center">No data found...........</td>
+                      </tr>
+                      @endif
+                    </tbody>
+                </table>
+              </div>
             </div>
-          </div>
+        </div>
       </div>
-      <div class="collapse" id="Award">
-          <div class="card card-body" style="background-color:#81b8ac; color:#fff">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td colspan="3" style="text-align:center">Phase Status</td>
-                    </tr> 
-                    <tr>
-                      <td>Date</td>
-                      <td colspan="2">Description</td>
-                    </tr> 
-                    @if(count($phase4details))
-                    @foreach($phase4details as $p4d)
-                    <tr>
-                      <td>{{date('d-m-Y',strtotime($p4d->date))}}</td>
-                      <td colspan="2">{{$p4d->des}}</td>
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                      <td colspan="3" style="text-align:center">No data found...........</td>
-                    </tr>
-                    @endif
-                  </tbody>
-              </table>
-            </div>
-          </div>
-      </div>
-      <div class="collapse" id="Implementation">
-          <div class="card card-body" style="background-color:#81b8ac; color:#fff">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                  <tbody>
-                    <tr>
-                      <td colspan="3" style="text-align:center">Phase Status</td>
-                    </tr> 
-                    <tr>
-                      <td>Date</td>
-                      <td colspan="2">Description</td>
-                    </tr> 
-                    @if(count($phase5details))
-                    @foreach($phase5details as $p5d)
-                    <tr>
-                      <td>{{date('d-m-Y',strtotime($p5d->date))}}</td>
-                      <td colspan="2">{{$p5d->des}}</td>
-                    </tr>
-                    @endforeach
-                    @else
-                    <tr>
-                      <td colspan="3" style="text-align:center">No data found...........</td>
-                    </tr>
-                    @endif
-                  </tbody>
-              </table>
-            </div>
-          </div>
-      </div>
-    </div>
-      <div 
-     
-       >
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="card card-primary">
           <div class="card-header d-flex justify-content-between align-items-center">
             <h3 class="card-title"></h3>
@@ -514,93 +505,44 @@
 <script>
   $(document).ready(function () {
     //------------- identitification---------------//
-    // $('#Ident').click(function (e) { 
-    //   $('#Development').hide();
-    //   $('#Procurement').hide();
-    //   $('#Award').hide();
-    //   $('#Implementation').hide();
-    //   $('#Identification').show();
-    // });
-    
-     $("#Ident").on({
-        mouseenter: function(){
-            $('#Identification').show(3000);
-        },  
-        mouseleave: function(){
-            $('#Identification').hide();
-        }  
+    $('#Ident').click(function (e) { 
+      $('#Development').hide();
+      $('#Procurement').hide();
+      $('#Award').hide();
+      $('#Implementation').hide();
+      $('#Identification').show();
     });
-    
     //------------- development---------------//
-    // $('#Dev').click(function (e) { 
-    //   $('#Identification').hide();
-    //   $('#Procurement').hide();
-    //   $('#Award').hide();
-    //   $('#Implementation').hide();
-    //   $('#Development').show();
-    // });
-    
-     $("#Dev").on({
-        mouseenter: function(){
-            $('#Development').show(3000);
-        },  
-        mouseleave: function(){
-            $('#Development').hide();
-        }  
+    $('#Dev').click(function (e) { 
+      $('#Identification').hide();
+      $('#Procurement').hide();
+      $('#Award').hide();
+      $('#Implementation').hide();
+      $('#Development').show();
     });
-    
     //------------- procurement---------------//
-    // $('#Pro').click(function (e) { 
-    //   $('#Identification').hide();
-    //   $('#Award').hide();
-    //   $('#Implementation').hide();
-    //   $('#Development').hide();
-    //   $('#Procurement').show();
-    // });
-    
-    $("#Pro").on({
-        mouseenter: function(){
-            $('#Procurement').show(3000);
-        },  
-        mouseleave: function(){
-            $('#Procurement').hide();
-        }  
+    $('#Pro').click(function (e) { 
+      $('#Identification').hide();
+      $('#Award').hide();
+      $('#Implementation').hide();
+      $('#Development').hide();
+      $('#Procurement').show();
     });
-    
     //------------- award---------------//
-    // $('#Awa').click(function (e) { 
-    //   $('#Identification').hide();
-    //   $('#Implementation').hide();
-    //   $('#Development').hide();
-    //   $('#Procurement').hide();
-    //   $('#Award').show();
-    // });
-    
-    $("#Awa").on({
-        mouseenter: function(){
-            $('#Award').show(3000);
-        },  
-        mouseleave: function(){
-            $('#Award').hide();
-        }  
+    $('#Awa').click(function (e) { 
+      $('#Identification').hide();
+      $('#Implementation').hide();
+      $('#Development').hide();
+      $('#Procurement').hide();
+      $('#Award').show();
     });
-    
     //------------- implementation---------------//
-    // $('#Imp').click(function (e) { 
-    //   $('#Identification').hide("slow");
-    //   $('#Development').hide("slow");
-    //   $('#Procurement').hide("slow");
-    //   $('#Award').hide("slow");
-    //   $('#Implementation').show(3000);
-    // });
-    
-    $("#Imp").on({
-        mouseenter: function(){
-            $('#Implementation').show(3000);
-        },  
-        mouseleave: function(){
-            $('#Implementation').hide();
-        }  
+    $('#Imp').click(function (e) { 
+      $('#Identification').hide("slow");
+      $('#Development').hide("slow");
+      $('#Procurement').hide("slow");
+      $('#Award').hide("slow");
+      $('#Implementation').show(3000);
     });
   });
 </script>
