@@ -43,7 +43,7 @@ function ministryProject(response){
 function projcetMinistry(response){
 	var options = {
 		chart: {
-			height: 300,
+			height: 600,
 			type: 'bar',
 			dropShadow: {
 				enabled: true,
@@ -58,6 +58,9 @@ function projcetMinistry(response){
 				dataLabels: {
 					position: 'top', // top, center, bottom
 				},
+				columnWidth: '50%', // Adjust the width of the columns
+				barHeight: '100%', // Adjust the height of the columns
+				distributed: true, // Spread columns apart
 			}
 		},
 		dataLabels: {
@@ -79,13 +82,16 @@ function projcetMinistry(response){
 			categories: ministriesArray(response),
 			position: 'top',
 			labels: {
-				offsetY: -10,
+				offsetY: -30,
 				rotate: -90,
 				rotateAlways: true,
+				trim:false,
 				style: {
-					color: 'Blue',
-					fontWeight: 500
-				}
+				  colors: '#09bfc6',
+				  fontWeight: 900,
+				  fontSize: '12px',
+				  fontFamily: 'Open Sans',
+				},
 			},
 			axisBorder: {
 				show: false

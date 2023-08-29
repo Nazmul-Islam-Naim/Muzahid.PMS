@@ -56,7 +56,7 @@
                       <select name="sector_id" class="select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         <option value="">Select</option>
                         @foreach( $allsector as $sector)
-                        <option value="{{$sector->id}}" {{(!empty($single_data) && $sector->id == $single_data->sector_id) ? 'selected':''}}>{{$sector->name}}</option>
+                        <option value="{{$sector->id}}" {{(!empty($single_data) && $sector->id == $single_data->sector_id) ? 'selected':''}}>{{$sector->name}}({{$sector->id}})</option>
                         @endforeach
                       </select>
                       <div class="field-placeholder">Sector <span class="text-danger">*</span></div>

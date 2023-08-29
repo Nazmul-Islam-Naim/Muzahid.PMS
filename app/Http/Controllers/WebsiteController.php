@@ -220,7 +220,7 @@ class WebsiteController extends Controller
     }
     // pptaf indivdual report
     public function pptafIndividual($id){
-        $data['individulaReport'] = Budget::findOrFail($id);
+        // $data['individulaReport'] = Budget::findOrFail($id);
         $data['combinedReports'] = Budget::all();
         return view('website.pptafIndividual', $data);
     }

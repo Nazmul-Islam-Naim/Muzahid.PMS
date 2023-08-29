@@ -72,6 +72,7 @@
                   <tr>
                     <th>Sl</th>
                     <th>Name</th>
+                    <th>Projects</th>
                     <th>Description</th>
                     <th>Status</th>
                     <th>Action</th>
@@ -82,7 +83,8 @@
                   @foreach($alldata as $data)
                   <tr>
                     <td>{{$sl++}}</td>
-                    <td>{{$data->name}}</td>
+                    <td>{{$data->name}}({{$data->id}})</td>
+                    <td>{{$data->projects->count()}}</td>
                     <td>{{$data->des}}</td>
                     <td>
                       @if($data->status == 1)

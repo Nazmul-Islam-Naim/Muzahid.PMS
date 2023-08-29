@@ -86,6 +86,11 @@
         },
 				{
           data: 'name',
+          render: function(data, type, row) {
+            var url = '{{route("project-profiles",":id")}}'; 
+            var url = url.replace(':id', row.slug);
+            return '<a href=' + url +'>'+ data +'</a>';
+          }
         },
 				{
           data: 'subphase.name',

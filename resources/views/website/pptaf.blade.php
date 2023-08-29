@@ -187,7 +187,32 @@
             </tbody>
             <tfoot> 
               <tr> 
-                <td colspan="24" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"><center><b>Total</b></center></td>
+                <td colspan="24" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px">***Every USD Transaction is Include Bangladesh Bank Dollar Exchange Rate(Cost Center)</td>
+              </tr>
+              <tr> 
+                <td colspan="8" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:right">Budget for TA</td>
+                <td colspan="3" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:left">56,230,000.00</td>
+                <td colspan="13" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"></td>
+              </tr>
+              <tr> 
+                <td colspan="8" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:right">TA Payment</td>
+                <td colspan="3" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:left">6,230,000.00</td>
+                <td colspan="13" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"></td>
+              </tr>
+              <tr> 
+                <td colspan="8" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:right">Other Expense</td>
+                <td colspan="3" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:left">230,000.00</td>
+                <td colspan="13" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"></td>
+              </tr>
+              <tr> 
+                <td colspan="8" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:right">Recovery(Development Fee/Success Fee)</td>
+                <td colspan="3" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:left">5,230,000.00</td>
+                <td colspan="13" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"></td>
+              </tr>
+              <tr> 
+                <td colspan="8" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:right">Balance</td>
+                <td colspan="3" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px; text-align:left">56,230,000.00</td>
+                <td colspan="13" style="font-weight: bold; border: 1px solid #ddd; padding: 3px 3px"></td>
               </tr>
             </tfoot>
           </table>
