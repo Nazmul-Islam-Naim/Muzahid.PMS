@@ -60,10 +60,12 @@
                       <th>Document</th>
                       <th>Image Title</th>
                       <th>Image</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody id="body">
                     <?php $count=0;?>
+                    <input type="hidden" value="{{$alldata->count()}}" id="rowCount">
                     @foreach($alldata as $data)
                     <?php $count++;?>
                       <tr id="row_{{$count}}">
@@ -77,8 +79,12 @@
                             <textarea name="addmore[{{$count}}][des]" style="height:40px" class="form-control">{{!empty($data->des) ? $data->des : ''}}</textarea>
                         </td>
                         <td style="border: 1px solid #fff">
-                          <input type="file" class="form-control" name="addmore[{{$count}}][doc]" value="" autocomplete="off">
+                          <input type="file" class="form-control" name="addmore[{{$count}}][doc]" value="" autocomplete="off" required>
                           <input type="hidden" class="form-control" name="addmore[{{$count}}][olddoc]" value="{{!empty($data->doc) ? $data->doc : ''}}" autocomplete="off">
+                          @if (!empty($data->doc) )
+                          <span>
+                            <i class="icon-file"></i></span>
+                          @endif
                         </td>
                         <td style="border: 1px solid #fff">
                             <textarea name="addmore[{{$count}}][image_title]" style="height:40px" class="form-control">{{!empty($data->image_title) ? $data->image_title : ''}}</textarea>
@@ -87,12 +93,16 @@
                           <input type="file" class="form-control" name="addmore[{{$count}}][image]" value="" autocomplete="off">
                           <input type="hidden" class="form-control" name="addmore[{{$count}}][oldimage]" value="{{!empty($data->image) ? $data->image : ''}}" autocomplete="off">
                         </td>
+                        <td style="border: 1px solid #fff">
+                          <a href="{{route('destroy-record', $data->id)}}" class="btn btn-danger btn-sm" ><i class="icon-trash"></i></a>
+                        </td>
                       </tr>
                       @endforeach
                   </tbody>
                 </table>
                 <div style="text-align:right">
-                  <button type="submit" class="form-control">submit</button>
+                  <span class="btn btn-sm btn-info" id="addone"><i class="icon-plus-circle"></i></span>
+                  <button type="submit" class="btn btn-sm btn-success">submit</button>
                 </div>
                 {!! Form::close() !!}
               </div>
@@ -108,8 +118,13 @@
 {!!Html::script('custom/js/jquery.min.js')!!}
 <script type="text/javascript"> 
 $(document).ready(function() {
-  var i=0;
-  var rowcount=1;
+  var rowCountElement = document.getElementById('rowCount');
+  var count = rowCountElement ? rowCountElement.value : 0;
+
+  console.log(count);
+
+  var i=count;
+  var rowcount=count;
     $("#addone").on('click',function(){
         i++;
         rowcount++;
@@ -124,10 +139,16 @@ $(document).ready(function() {
             row += ' <textarea name="addmore['+i+'][des]" style="height:40px" class="form-control"></textarea>';
             row += '</td>';
             row += '<td style="border: 1px solid #fff">';
-            row += ' <input type="file" class="form-control" name="addmore[0][doc]" autocomplete="off">';
+            row += ' <input type="file" class="form-control" name="addmore['+i+'][doc]" autocomplete="off" required>';
             row += '</td>';
             row += '<td style="border: 1px solid #fff">';
-            row += ' <input type="button" class="form-control" value="x" id="remove" onclick="$(\'#row_'+i+'\').remove();subtotal()">';
+            row += ' <textarea name="addmore['+i+'][image_title]" style="height:40px" class="form-control"></textarea>';
+            row += '</td>';
+            row += '<td style="border: 1px solid #fff">';
+            row += ' <input type="file" class="form-control" name="addmore['+i+'][image]" autocomplete="off">';
+            row += '</td>';
+            row += '<td style="border: 1px solid #fff">';
+            row += ' <button class="btn btn-danger btn-sm" id="remove" onclick="$(\'#row_'+i+'\').remove();"><i class="icon-trash"></i></button>';
             row += '</td>';
             row += '</tr>';
             $('#body').append(row);

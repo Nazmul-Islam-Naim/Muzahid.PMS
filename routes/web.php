@@ -54,6 +54,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('feasibility-amendment', 'App\Http\Controllers\AddFeasibilityController@feasibilityAmendment')->name('feasibility-amendment');
         Route::get('feasibility-report', 'App\Http\Controllers\AddFeasibilityController@feasibilityReport')->name('feasibility-report');
         Route::get('show-feasibility-document/{id}', 'App\Http\Controllers\AddFeasibilityController@showFeasibilityDocument')->name('show-feasibility-document');
+        Route::get('destroy-record/{id}', 'App\Http\Controllers\AddFeasibilityController@destroyRecord')->name('destroy-record');
     });
 
     //******** construction part *******//

@@ -230,6 +230,8 @@ class AddFeasibilityController extends Controller
             //------------------ insert into capital cost details -----------------//
             $insert= $feasibility->update($input);
             
+
+            // dd($request->addmore);
             foreach ($request->addmore as $value) {
                 if (!empty($value['doc'])) {
                     $doc = $value['doc'];
@@ -344,6 +346,29 @@ class AddFeasibilityController extends Controller
                                 ->update([
                                     'feasibility_id' =>  $lastphase->feasibility_id
                                 ]);
+        $action = $data->delete();
+
+        if($action){
+            Session::flash('flash_message','Phase Successfully Deleted !');
+            return redirect()->back()->with('status_color','danger');
+        }else{
+            Session::flash('flash_message','Something Error Found !');
+            return redirect()->back()->with('status_color','danger');
+        }
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyRecord($id)
+    {
+        Gate::authorize('app.feasibility.destroy');
+        $data = FeasibilityDetail::findOrFail($id);
+        //--------------------- delete feasibility delete ------------------//
+        ProjectDetail::where([['tok',$data->tok],['doc', $data->doc]])->delete();
+        //------------------------ last feasibility of this project --------------//
         $action = $data->delete();
 
         if($action){
