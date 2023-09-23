@@ -24,13 +24,13 @@ class Project extends Model
 
         // key date
 
-        'screening_date','in_princeple_approval','final_approval', 'contract_signing','contract_period','commencement_date','commencement_period',
-        'completion_date','commercial_date',
-        
+        'screening_date','in_princeple_approval','final_approval', 'contract_signing','contract_period', 'financial_close', 'commencement_date','commencement_period',
+        'construction_complete','completion_date','commercial_date',
+
         // contnious change
 
         'approval_id','implementation_period','cost_id','feasibility_id','construction_company_id','phase_id','sub_phase_id','document_type_id',
-        
+
         'status','created_by'
     ];
 
@@ -43,7 +43,7 @@ class Project extends Model
     public function sectors(){
         return $this->belongsTo(Sector::class);
     }
-    
+
     // ministry object
     public function ministry()
     {

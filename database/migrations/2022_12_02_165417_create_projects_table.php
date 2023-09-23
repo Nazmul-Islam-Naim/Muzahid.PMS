@@ -42,8 +42,8 @@ class CreateProjectsTable extends Migration
             $table->string('leverage')->nullable();
             $table->string('vgf_amount_percent')->nullable();
 
-            //stakholder
-            
+            //stakeholder
+
             $table->string('grantor')->nullable();
             $table->integer('ministry_id')->nullable();
             $table->integer('implementing_agency_id')->nullable();
@@ -61,8 +61,10 @@ class CreateProjectsTable extends Migration
             $table->date('final_approval')->nullable();
             $table->date('contract_signing')->nullable();
             $table->bigInteger('contract_period')->nullable();
+            $table->date('financial_close')->nullable();
             $table->date('commencement_date')->nullable();
             $table->bigInteger('commencement_period')->nullable();
+            $table->date('construction_complete')->nullable();
             $table->date('completion_date')->nullable();
             $table->date('commercial_date')->nullable();
 
@@ -76,7 +78,7 @@ class CreateProjectsTable extends Migration
             $table->integer('phase_id')->nullable();
             $table->integer('sub_phase_id')->nullable();
             $table->integer('document_type_id')->nullable();
-            
+
             $table->tinyInteger('status')->nullable();
             $table->tinyInteger('created_by')->nullable();
             $table->timestamps();

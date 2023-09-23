@@ -19,14 +19,14 @@
         <span class="badge" style="background-color: #d4a112">Running</span>
       </div>
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        <?php 
+        <?php
           //--------------------------------------- set progress color -----------------------------------------//
-          $color1 =''; 
-          $color2 =''; 
-          $color3 =''; 
-          $color4 =''; 
-          $color5 =''; 
-          $notyet ='Not Yet'; 
+          $color1 ='';
+          $color2 ='';
+          $color3 ='';
+          $color4 ='';
+          $color5 ='';
+          $notyet ='Not Yet';
           //--------------------------------------- identitification phase -----------------------------------------//
           $color1of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->count();
           $phase1details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',1]])->get();
@@ -37,7 +37,7 @@
           }else{
             $color1 = '#14acce';
           }
-          
+
           //--------------------------------------- development phase -----------------------------------------//
           $color2of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->count();
           $phase2details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',2]])->get();
@@ -48,7 +48,7 @@
           }else{
             $color2 = '#2bc2c0';
           }
-          
+
           //--------------------------------------- procurement phase -----------------------------------------//
           $color3of1 = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->count();
           $phase3details = DB::table('phase_details')->where([['project_id',$single_data->id],['phase_id',3]])->get();
@@ -126,11 +126,11 @@
                       <tbody>
                         <tr>
                           <td colspan="3" style="text-align:center">Identification Phase Status</td>
-                        </tr> 
+                        </tr>
                         <tr>
                           <td>Date</td>
                           <td colspan="2">Description</td>
-                        </tr> 
+                        </tr>
                         @if(count($phase1details))
                         @foreach($phase1details as $p1d)
                         <tr>
@@ -155,11 +155,11 @@
                     <tbody>
                       <tr>
                         <td colspan="3" style="text-align:center; color:#fff;">Development Phase Status</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td  sytle="color:#fff">Date</td>
                         <td colspan="2"  sytle="color:#fff">Description</td>
-                      </tr> 
+                      </tr>
                       @if(count($phase2details))
                       @foreach($phase2details as $p2d)
                       <tr>
@@ -184,11 +184,11 @@
                     <tbody>
                       <tr>
                         <td colspan="3" style="text-align:center">Procurement Phase Status</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td>Date</td>
                         <td colspan="2">Description</td>
-                      </tr> 
+                      </tr>
                       @if(count($phase3details))
                       @foreach($phase3details as $p3d)
                       <tr>
@@ -213,11 +213,11 @@
                     <tbody>
                       <tr>
                         <td colspan="3" style="text-align:center">Award Phase Status</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td>Date</td>
                         <td colspan="2">Description</td>
-                      </tr> 
+                      </tr>
                       @if(count($phase4details))
                       @foreach($phase4details as $p4d)
                       <tr>
@@ -242,11 +242,11 @@
                     <tbody>
                       <tr>
                         <td colspan="3" style="text-align:center">Implementation Phase Status</td>
-                      </tr> 
+                      </tr>
                       <tr>
                         <td>Date</td>
                         <td colspan="2">Description</td>
-                      </tr> 
+                      </tr>
                       @if(count($phase5details))
                       @foreach($phase5details as $p5d)
                       <tr>
@@ -279,12 +279,12 @@
                      style="
                      width:100%;
                       font-size:20px;"
-                     > 
+                     >
                       <tbody>
                         <!--<tr> -->
                         <!--  <td colspan="10" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> <h4 style="text-align:center">{{$single_data->name}}</h4> </td>-->
                         <!--</tr>-->
-                        <tr> 
+                        <tr>
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 3px; text-align:center">
                             @if (!empty($single_data->image))
                             <img class="profile-user-img img-responsive " src="{{asset('upload/project/'.$single_data->image)}}" alt="User profile picture">
@@ -293,42 +293,42 @@
                             @endif
                           </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Information:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset"> Details </td>
                         </tr>
-                        <tr style="background: #698d57; color:white;"> 
+                        <tr style="background: #698d57; color:white;">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color:white">Project Summery</b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Project Name:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->name}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Sector:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->sector->name}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Location:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->location->name}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Area:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->area}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Background:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {!! $single_data->background !!} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Project Scope:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {!! $single_data->project_scope !!} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Objective:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {!! $single_data->objective !!} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Procurement Method:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify">
                              {{!empty($procurementPhaseDetails->g2g_basis) ? "G2G Basis: ".$procurementPhaseDetails->g2g_basis.", " : ''}}
@@ -341,151 +341,155 @@
                              {{!empty($procurementPhaseDetails->swiss_challenge) ? "Swiss Challenge: ".$procurementPhaseDetails->swiss_challenge.", " : ''}}
                           </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Key Features/Output:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->key_feature}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Economic Life:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->economic_life}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Contract Term:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->contract_term}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b> Construction Time:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->construction_time}} </td>
                         </tr>
-                        <tr style="background: #2b7251bd; color:white"> 
+                        <tr style="background: #2b7251bd; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Project Structure/Model</b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>PPP Structure:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->delivery_model)) ? $single_data->delivery_model : '' }} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>PPP Reveneue Model:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->revenue_model)) ? $single_data->revenue_model : '' }} </td>
                         </tr>
-                        <tr style="background: #31835df7; color:white"> 
+                        <tr style="background: #31835df7; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Project Estimated Cost per PFS/DFS</b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Total Estimated Capital Cost:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->capital_cost)) ? $single_data->capital_cost : '' }} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Total Project Cost:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->project_cost)) ? $single_data->project_cost : '' }} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Leverage (Debt to equity ratio):</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->leverage)) ? $single_data->leverage : '' }} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>VGF amount %:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->vgf_amount_percent)) ? $single_data->vgf_amount_percent : '' }} </td>
                         </tr>
-                        <tr style="background: #2b8773; color:white"> 
+                        <tr style="background: #2b8773; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Stakeholder Details</b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Grantor:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->grantor}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Division/Ministry:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->ministry->name}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Contracting Authority:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->agency->name}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Private Partner / Project Company:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{($single_data->partner->name != null)?$single_data->partner->name:'Not Yet'}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Shareholders (with Equity %):</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->shareholders}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Lenders (with amount and %):</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->lenders}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>EPC Contractor’s:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->epc_contractors}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>O & M Contractor’s:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->o_m_contractors}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Independent Engineer:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->independent_engineer}} </td>
                         </tr>
-                        <tr style="background: #229999eb; color:white"> 
+                        <tr style="background: #229999eb; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Key dates</b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Project Screening Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->screening_date)) ? date('d-m-Y',strtotime($single_data->screening_date)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>In-Principle Approval Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->in_princeple_approval)) ? date('d-m-Y',strtotime($single_data->in_princeple_approval)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Final Approval Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->final_approval)) ? date('d-m-Y',strtotime($single_data->final_approval)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Concession Signing Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->contract_signing)) ? date('d-m-Y',strtotime($single_data->contract_signing)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Concession Period:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify">  {{$single_data->commencement_period}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
+                          <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Financial Close:</b></td>
+                          <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify">  {{$single_data->financial_close}} </td>
+                        </tr>
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Construction Commencement Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->commencement_date)) ? date('d-m-Y',strtotime($single_data->commencement_date)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Construction Period:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->contract_period}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Completion Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->completion_date)) ? date('d-m-Y',strtotime($single_data->completion_date)) : ''}} </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Commercial Date:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{(!empty($single_data->commercial_date)) ? date('d-m-Y',strtotime($single_data->commercial_date)) : ''}} </td>
                         </tr>
-                        <tr style="background: #0f6868eb; color:white"> 
+                        <tr style="background: #0f6868eb; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Construction Contractor</b></b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{!empty($single_data->construction)?$single_data->construction->name:'Not Yet'}} </td>
                         </tr>
-                        <tr style="background: #088d8deb; color:white"> 
+                        <tr style="background: #088d8deb; color:white">
                           <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">TA Service Provider</b></b> </td>
                         </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{($single_data->feasibility != null)?$single_data->feasibility->name:'Not Yet'}}</td>
-                        <tr> 
-                          <tr style="background: #067070eb; color:white"> 
+                        <tr>
+                          <tr style="background: #067070eb; color:white">
                             <td colspan="10" style="border: 1px solid #ddd; padding: 3px 15px; white-space: unset; text-align:left"> <b style="color: white">Present Status</b></b> </td>
                           </tr>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{($single_data->phase != null)?$single_data->phase->name:'Not Yet'}} ({{($single_data->subphase != null)?$single_data->subphase->name:'Not Yet'}}) </td>
-                        <tr> 
+                        <tr>
                           <td style="border: 1px solid #ddd; padding: 3px 3px; text-align:right"><b>Note:</b></td>
                           <td colspan="9" style="border: 1px solid #ddd; padding: 3px 3px; white-space: unset; text-align:justify"> {{$single_data->note}} </td>
                         </tr>
@@ -505,7 +509,7 @@
 <script>
   $(document).ready(function () {
     //------------- identitification---------------//
-    $('#Ident').click(function (e) { 
+    $('#Ident').click(function (e) {
       $('#Development').hide();
       $('#Procurement').hide();
       $('#Award').hide();
@@ -513,7 +517,7 @@
       $('#Identification').show();
     });
     //------------- development---------------//
-    $('#Dev').click(function (e) { 
+    $('#Dev').click(function (e) {
       $('#Identification').hide();
       $('#Procurement').hide();
       $('#Award').hide();
@@ -521,7 +525,7 @@
       $('#Development').show();
     });
     //------------- procurement---------------//
-    $('#Pro').click(function (e) { 
+    $('#Pro').click(function (e) {
       $('#Identification').hide();
       $('#Award').hide();
       $('#Implementation').hide();
@@ -529,7 +533,7 @@
       $('#Procurement').show();
     });
     //------------- award---------------//
-    $('#Awa').click(function (e) { 
+    $('#Awa').click(function (e) {
       $('#Identification').hide();
       $('#Implementation').hide();
       $('#Development').hide();
@@ -537,7 +541,7 @@
       $('#Award').show();
     });
     //------------- implementation---------------//
-    $('#Imp').click(function (e) { 
+    $('#Imp').click(function (e) {
       $('#Identification').hide("slow");
       $('#Development').hide("slow");
       $('#Procurement').hide("slow");
@@ -546,4 +550,4 @@
     });
   });
 </script>
-@endsection 
+@endsection

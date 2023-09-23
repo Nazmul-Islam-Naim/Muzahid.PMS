@@ -19,7 +19,7 @@
       </div>
 
       <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        
+
         @if(!empty($single_data))
           {!! Form::open(array('route' =>['project.update', $single_data->id],'method'=>'PUT','files'=>true)) !!}
           <?php $info ="Update";?>
@@ -33,7 +33,7 @@
             <div class="card-title">{{$info}}  Project</div>
           </div>
           <div class="card-body">
-            
+
             <div id="example-form">
 
               <h3>Summary</h3>
@@ -42,16 +42,16 @@
                 <div class="row gutters">
 
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="text" name="name" placeholder="Enetr Project Name" required autocomplete="off" 
+                      <input type="text" name="name" placeholder="Enetr Project Name" required autocomplete="off"
                       value="{{(!empty($single_data->name))?$single_data->name:''}}">
                       <div class="field-placeholder">Project Name <span class="text-danger">*</span></div>
                     </div>
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="sector_id" class="select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         <option value="">Select</option>
@@ -64,7 +64,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="location_id" class="form-control select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         <option value="">Select</option>
@@ -77,7 +77,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="area" placeholder="Enetr Area"
                       value="{{(!empty($single_data->area))?$single_data->area:''}}">
@@ -86,7 +86,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="key_feature" placeholder="Enetr Key Features/Output"
                       value="{{(!empty($single_data->key_feature))?$single_data->key_feature:''}}">
@@ -95,7 +95,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="economic_life" placeholder="Enetr Economic Life"
                       value="{{(!empty($single_data->economic_life))?$single_data->economic_life:''}}">
@@ -104,7 +104,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="contract_term" placeholder="Enetr Contract Term"
                       value="{{(!empty($single_data->contract_term))?$single_data->contract_term:''}}">
@@ -113,7 +113,7 @@
 
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="construction_time" placeholder="Enetr Construction Time"
                       value="{{(!empty($single_data->construction_time))?$single_data->construction_time:''}}">
@@ -122,7 +122,7 @@
 
                   </div>
                   <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="file" name="image" value="{{(!empty($single_data->image))?$single_data->image:''}}" class="form-control">
                       <div class="field-placeholder">Image<span class="text-danger">*</span></div>
@@ -138,9 +138,9 @@
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-                    
+
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
-                      
+
                       <div class="field-wrapper m-0">
                         <textarea name="background" class="summernote" id="background" >{{(!empty($single_data->background))?$single_data->background:''}}</textarea>
                         <div class="field-placeholder">Background</div>
@@ -149,7 +149,7 @@
                     </div>
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                      
+
                       <div class="field-wrapper m-0">
                         <div></div>
                         <textarea name="project_scope" class="summernote" id="scope">{{(!empty($single_data->project_scope))?$single_data->project_scope:''}}</textarea>
@@ -168,9 +168,9 @@
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-                    
+
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                      
+
                       <div class="field-wrapper m-0">
                         <textarea name="objective" class="summernote" id="objective">{{(!empty($single_data->objective))?$single_data->objective:''}}</textarea>
                         <div class="field-placeholder">Objective</div>
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                      
+
                       <div class="field-wrapper m-0">
                         <textarea name="note" class="summernote" id="note">{{(!empty($single_data->note))?$single_data->note:''}}</textarea>
                         <div class="field-placeholder">Note</div>
@@ -195,9 +195,9 @@
               <section>
                 <h6 class="h-0 m-0">&nbsp;</h6>
                 <div class="row gutters">
-                  
+
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="delivery_model" class="form-control select-single js-states" data-live-search="true" autocomplete="off">
                         <option value="">Select</option>
@@ -209,9 +209,9 @@
                     </div>
 
                   </div>
-                  
+
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="revenue_model" class="form-control select-single js-states" data-live-search="true"  autocomplete="off">
                         <option value="">Select</option>
@@ -225,7 +225,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="capital_cost" placeholder="Enetr Capital Cost"
                       value="{{(!empty($single_data->capital_cost))?$single_data->capital_cost:''}}">
@@ -235,7 +235,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="project_cost" placeholder="Enetr Project Cost"
                       value="{{(!empty($single_data->project_cost))?$single_data->project_cost:''}}">
@@ -245,7 +245,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="leverage" placeholder="Enetr Levarage (Debt to equity ratio)"
                       value="{{(!empty($single_data->leverage))?$single_data->leverage:''}}">
@@ -255,7 +255,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="vgf_amount_percent" placeholder="Enetr VGF Amount %"
                       value="{{(!empty($single_data->vgf_amount_percent))?$single_data->vgf_amount_percent:''}}">
@@ -273,7 +273,7 @@
                 <div class="row gutters">
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="grantor" placeholder="Enetr Grantor"
                       value="{{(!empty($single_data->grantor))?$single_data->grantor:''}}">
@@ -283,7 +283,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="ministry_id" id="ministry_id" class="form-control select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         <option value="">Select</option>
@@ -297,7 +297,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="implementing_agency_id" id="implementing_agency_id" class="form-control select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         @if(!empty($single_data))
@@ -313,7 +313,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <select name="private_partner_id" class="form-control select-single js-states" data-live-search="true" requried="" autocomplete="off">
                         <option value="">Select</option>
@@ -327,7 +327,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="shareholders" placeholder="Enetr Shareholders (with equity %)"
                       value="{{(!empty($single_data->shareholders))?$single_data->shareholders:''}}">
@@ -337,7 +337,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="lenders" placeholder="Enetr Lenders (with amound and %)"
                       value="{{(!empty($single_data->lenders))?$single_data->lenders:''}}">
@@ -347,7 +347,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="epc_contractors" placeholder="Enetr EPC Contractor's"
                       value="{{(!empty($single_data->epc_contractors))?$single_data->epc_contractors:''}}">
@@ -357,7 +357,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="o_m_contractors" placeholder="Enetr O & M Contractor's"
                       value="{{(!empty($single_data->o_m_contractors))?$single_data->o_m_contractors:''}}">
@@ -367,7 +367,7 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="text" name="independent_engineer" placeholder="Enetr Independent Engineer"
                       value="{{(!empty($single_data->independent_engineer))?$single_data->independent_engineer:''}}">
@@ -378,14 +378,14 @@
 
                 </div>
               </section>
-              
+
               <h3>Dates</h3>
               <section>
                 <h6 class="h-0 m-0">&nbsp;</h6>
                 <div class="row gutters">
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
                       <input type="date" name="screening_date"
                       value="{{(!empty($single_data)? $single_data->screening_date : '')}}" autocomplete="off">
@@ -395,9 +395,9 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="date" name="in_princeple_approval" 
+                      <input type="date" name="in_princeple_approval"
                       value="{{(!empty($single_data)? $single_data->in_princeple_approval : '')}}" autocomplete="off">
                       <div class="field-placeholder">In-Principle Approval Date</div>
                     </div>
@@ -405,9 +405,9 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="date" name="final_approval" 
+                      <input type="date" name="final_approval"
                       value="{{(!empty($single_data)? $single_data->final_approval : '')}}" autocomplete="off">
                       <div class="field-placeholder">Final Approval Date</div>
                     </div>
@@ -415,9 +415,9 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="date" name="contract_signing" 
+                      <input type="date" name="contract_signing" id="contract_signing"
                       value="{{(!empty($single_data)? $single_data->contract_signing : '')}}" autocomplete="off">
                       <div class="field-placeholder">Concession Signing date</div>
                     </div>
@@ -425,9 +425,9 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="number" name="contract_period" 
+                      <input type="number" name="contract_period" id="contract_period"
                       value="{{(!empty($single_data)? $single_data->contract_period : '')}}" autocomplete="off">
                       <div class="field-placeholder">Concession Period</div>
                     </div>
@@ -435,9 +435,19 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="date" name="commencement_date" 
+                      <input type="date" name="financial_close" id="financial_close"
+                      value="{{(!empty($single_data)? $single_data->financial_close : '')}}" autocomplete="off">
+                      <div class="field-placeholder">Financial Close</div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                    <div class="field-wrapper">
+                      <input type="date" name="commencement_date" id="commencement_date"
                       value="{{(!empty($single_data)? $single_data->commencement_date : '')}}" autocomplete="off">
                       <div class="field-placeholder">Construction Commencement date</div>
                     </div>
@@ -445,29 +455,39 @@
                   </div>
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+
                     <div class="field-wrapper">
-                      <input type="number" name="commencement_period" placeholder="Enter Commencement Period"
+                      <input type="number" name="commencement_period" id="commencement_period" placeholder="Enter Commencement Period"
                       value="{{(!empty($single_data)? $single_data->commencement_period : '')}}" autocomplete="off">
-                      <div class="field-placeholder">Commencement Period</div>
+                      <div class="field-placeholder">Construction Period</div>
                     </div>
 
                   </div>
 
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
                     <div class="field-wrapper">
-                      <input type="date" name="completion_date" 
+                      <input type="date" name="construction_complete"  id="construction_complete"
+                      value="{{(!empty($single_data)? $single_data->construction_complete : '')}}" autocomplete="off">
+                      <div class="field-placeholder">Construction Complete</div>
+                    </div>
+
+                  </div>
+
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
+                    <div class="field-wrapper">
+                      <input type="date" name="completion_date"  id="completion_date"
                       value="{{(!empty($single_data)? $single_data->completion_date : '')}}" autocomplete="off">
                       <div class="field-placeholder">Completion date</div>
                     </div>
 
                   </div>
 
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+
                     <div class="field-wrapper">
-                      <input type="date" name="commercial_date" 
+                      <input type="date" name="commercial_date"
                       value="{{(!empty($single_data)? $single_data->commercial_date : '')}}" autocomplete="off">
                       <div class="field-placeholder">Commercial date</div>
                     </div>
@@ -483,7 +503,7 @@
           <div class="card-footer text-end">
             <button type="submit" class="btn btn-sm btn-primary">Submit</button>
           </div>
-            
+
           {!! Form::close() !!}
 
         </div>
@@ -523,7 +543,7 @@ $(document).ready(function() {
             if(data){
               $('#implementing_agency_id').empty();
               $('#implementing_agency_id').focus;
-              $('#implementing_agency_id').append('<option value="">Select</option>'); 
+              $('#implementing_agency_id').append('<option value="">Select</option>');
               $.each(data, function(key, value){
                 console.log(data);
                 $('select[name="implementing_agency_id"]').append('<option value="'+ value.id +'">' + value.name+ '</option>');
@@ -539,51 +559,127 @@ $(document).ready(function() {
     });
 
     // sumernote point
-    
+
     $('#background').summernote({
-					height: 80,
-					tabsize: 2,
-					focus: true,
-					toolbar: [
-	          ['font', ['bold', 'underline', 'clear']],
-	          ['para', ['ul', 'ol']],
-	          ['insert', ['link', 'picture', 'video']],
-	          ['view', ['fullscreen', 'codeview', 'help']],
-	        ]
-				});
-				$('#scope').summernote({
-					height: 80,
-					tabsize: 2,
-					focus: true,
-					toolbar: [
-	          ['font', ['bold', 'underline', 'clear']],
-	          ['para', ['ul', 'ol']],
-	          ['insert', ['link', 'picture', 'video']],
-	          ['view', ['fullscreen', 'codeview', 'help']],
-	        ]
-				});
-				$('#objective').summernote({
-					height: 80,
-					tabsize: 2,
-					focus: true,
-					toolbar: [
-	          ['font', ['bold', 'underline', 'clear']],
-	          ['para', ['ul', 'ol']],
-	          ['insert', ['link', 'picture', 'video']],
-	          ['view', ['fullscreen', 'codeview', 'help']],
-	        ]
-				});
-				$('#note').summernote({
-					height: 80,
-					tabsize: 2,
-					focus: true,
-					toolbar: [
-	          ['font', ['bold', 'underline', 'clear']],
-	          ['para', ['ul', 'ol']],
-	          ['insert', ['link', 'picture', 'video']],
-	          ['view', ['fullscreen', 'codeview', 'help']],
-	        ]
-				});
+        height: 80,
+        tabsize: 2,
+        focus: true,
+        toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ]
+    });
+    $('#scope').summernote({
+        height: 80,
+        tabsize: 2,
+        focus: true,
+        toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ]
+    });
+    $('#objective').summernote({
+                height: 80,
+                tabsize: 2,
+                focus: true,
+                toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ]
+    });
+    $('#note').summernote({
+            height: 80,
+            tabsize: 2,
+            focus: true,
+            toolbar: [
+        ['font', ['bold', 'underline', 'clear']],
+        ['para', ['ul', 'ol']],
+        ['insert', ['link', 'picture', 'video']],
+        ['view', ['fullscreen', 'codeview', 'help']],
+    ]
+    });
+
+    $('#contract_signing').change(function (e) {
+        e.preventDefault();
+        var contractSigning = $('#contract_signing').val();
+        var contractPeriod = parseInt($('#contract_period').val());
+        if (isNaN(contractPeriod)) {
+            contractPeriod = 0;
+        }
+        var completionDate = dateCalculation(contractSigning, contractPeriod)
+        $('#completion_date').val(completionDate);
+
+    });
+
+    $('#contract_period').keyup(function (e) {
+        e.preventDefault();
+        var contractSigning = $('#contract_signing').val();
+        var contractPeriod = parseInt($('#contract_period').val());
+        if (!isNaN(contractSigning)) {
+            alert("Place date to Concession Period");
+        }
+        if (isNaN(contractPeriod)) {
+            contractPeriod = 0;
+        }
+        var completionDate = dateCalculation(contractSigning, contractPeriod)
+        $('#completion_date').val(completionDate);
+
+    });
+
+    $('#commencement_date').change(function (e) {
+        e.preventDefault();
+        var commencementDate = $('#commencement_date').val();
+        var commencementPeriod = parseInt($('#commencement_period').val());
+        if (isNaN(commencementPeriod)) {
+            commencementPeriod = 0;
+        }
+        var completionDate = dateCalculation(commencementDate, commencementPeriod)
+        $('#construction_complete').val(completionDate);
+
+    });
+
+    $('#commencement_period').keyup(function (e) {
+        e.preventDefault();
+        var commencementDate = $('#commencement_date').val();
+        var commencementPeriod = parseInt($('#commencement_period').val());
+        if (!isNaN(commencementDate)) {
+            alert("Place date to Construction Commencment Period");
+        }
+        if (isNaN(commencementPeriod)) {
+            commencementPeriod = 0;
+        }
+        var completionDate = dateCalculation(commencementDate, commencementPeriod)
+        $('#construction_complete').val(completionDate);
+
+    });
+
+
 });
+
+
+function dateCalculation(inputDate, period) {
+    let date, month, year;
+    var conToDate = new Date(inputDate);
+    date = conToDate.getDate()-1;
+    month = conToDate.getMonth()+1;
+    year = conToDate.getFullYear();
+
+    date = date
+        .toString()
+        .padStart(2, '0');
+
+    month = month
+        .toString()
+        .padStart(2, '0');
+
+    var periodTo = `${year+period}-${month}-${date}`;
+    return periodTo
+    }
 </script>
-@endsection 
+@endsection

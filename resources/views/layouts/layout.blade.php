@@ -13,7 +13,7 @@
         <!-- Title -->
         <title>@yield('title')</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
         <!-- Google Font -->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;500&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
         ************ -->
         <!-- Bootstrap css -->
         {!!Html::style('custom/css/bootstrap.min.css')!!}
-        
+
         <!-- Icomoon Font Icons css -->
         {!!Html::style('custom/fonts/style.css')!!}
 
-        <?php 
+        <?php
         $checkThemeforUser=DB::table('theme_settings')->where('user_id', Auth::id())->first();
         ?>
         <!-- Main css for green -->
@@ -56,7 +56,7 @@
         <!-- font awoesome CSS -->
         {!!Html::style('custom/font-awesome-4.7.0/css/font-awesome.css')!!}
         {!!Html::style('custom/font-awesome-4.7.0/css/font-awesome.min.css')!!}
-        
+
 		<!-- Steps Wizard CSS -->
         {!!Html::style('custom/vendor/wizard/jquery.steps.css')!!}
 
@@ -129,7 +129,7 @@
             	margin-top: 10px;
             	border-radius: 2px;
             }
-            
+
             /* Pagination */
             .pagination .page-link {
                 color: #7980a2;
@@ -152,7 +152,7 @@
                 border-color: #dee2e6;
             }
         </style>
-        
+
     </head>
     <body class="default-sidebar">
 
@@ -169,10 +169,10 @@
 
         <!-- Page wrapper start -->
         <div class="page-wrapper">
-            
+
             <!-- Sidebar wrapper start -->
             <nav class="sidebar-wrapper">
-                
+
                 <!-- Default sidebar wrapper start -->
                 <div class="default-sidebar-wrapper">
 
@@ -191,9 +191,9 @@
                             <ul>
                                 <!-------------- dashboard part ------------>
                                 <li class="default-sidebar-dropdown {{(
-                                    $url=='home' || 
-                                    $url==config('app.dashboard').'/ministry-list' || 
-                                    $url==config('app.dashboard').'/implementing-agency-list' || 
+                                    $url=='home' ||
+                                    $url==config('app.dashboard').'/ministry-list' ||
+                                    $url==config('app.dashboard').'/implementing-agency-list' ||
                                     $url==config('app.dashboard').'/project-list') ? 'active':''}}">
                                     <a href="javascript:void(0)">
                                         <i class="icon-home2"></i>
@@ -581,13 +581,13 @@
                                 @can('app.accounttype.module')
                                 <li class="default-sidebar-dropdown {{(
                                     $url==config('app.account').'/account-type' || $url==(request()->is(config('app.account').'/account-type/*/edit')) ||
-                                    $url==config('app.account').'/bank-account' || 
-                                    $url==config('app.account').'/cheque-book' || 
-                                    $url==config('app.account').'/cheque-no' || 
-                                    $url==config('app.account').'/cheque'  || $url==config('app.account').'/cheque/create'|| $url==(request()->is(config('app.account').'/cheque/*/edit')) || 
-                                    $url==(request()->is(config('app.account').'/bank-deposit/*')) || 
-                                    $url==(request()->is(config('app.account').'/amount-withdraw/*')) || 
-                                    $url==(request()->is(config('app.account').'/amount-transfer/*')) || 
+                                    $url==config('app.account').'/bank-account' ||
+                                    $url==config('app.account').'/cheque-book' ||
+                                    $url==config('app.account').'/cheque-no' ||
+                                    $url==config('app.account').'/cheque'  || $url==config('app.account').'/cheque/create'|| $url==(request()->is(config('app.account').'/cheque/*/edit')) ||
+                                    $url==(request()->is(config('app.account').'/bank-deposit/*')) ||
+                                    $url==(request()->is(config('app.account').'/amount-withdraw/*')) ||
+                                    $url==(request()->is(config('app.account').'/amount-transfer/*')) ||
                                     $url==(request()->is(config('app.account').'/bank-report/*')) ||
                                     $url==config('app.op').'/payment-code' || $url==config('app.op').'/payment-code/create' || $url==(request()->is(config('app.op').'/payment-code/*/edit')) ||
                                     $url==config('app.op').'/payment-title' || $url==config('app.op').'/payment-title/create' || $url==(request()->is(config('app.op').'/payment-title/*/edit')) ||
@@ -602,52 +602,52 @@
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/account-type'}}" class="{{($url==config('app.account').'/account-type' || $url==(request()->is(config('app.account').'/account-type/*/edit'))) ? 'current-page':''}}">{{ __('menu.account_type') }}</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.bankaccount.index')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/bank-account'}}" class="{{($url==config('app.account').'/bank-account' || $url==(request()->is(config('app.account').'/bank-deposit/*')) || $url==(request()->is(config('app.account').'/amount-withdraw/*')) || $url==(request()->is(config('app.account').'/amount-transfer/*')) || $url==(request()->is(config('app.account').'/bank-report/*'))) ? 'current-page':''}}">{{ __('menu.bank_account') }}</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.chequebook.index')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/cheque-book'}}" class="{{($url==config('app.account').'/cheque-book') ? 'current-page':''}}">{{ __('menu.cheque_book') }}</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.chequenumber.index')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/cheque-no'}}" class="{{($url==config('app.account').'/cheque-no') ? 'current-page':''}}">{{ __('menu.cheque_no') }}</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             <!-- <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/cheque'}}" class="{{($url==config('app.account').'/cheque'  || $url==config('app.account').'/cheque/create'|| $url==(request()->is(config('app.account').'/cheque/*/edit'))) ? 'current-page':''}}">Create Cheque</a>
                                             </li> -->
-                                            
+
                                             <li class="list-heading" style="margin-left: 30px"><b>{{ __('menu.expense') }}</b></li>
                                             @can('app.expenseCode.index')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.op').'/payment-code'}}" class="{{($url==config('app.op').'/payment-code' || $url==config('app.op').'/payment-code/create' || $url==(request()->is(config('app.op').'/payment-code/*/edit'))) ? 'current-page':''}}">Expense Code</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.expenseTitle.index')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.op').'/payment-title'}}" class="{{($url==config('app.op').'/payment-title' || $url==config('app.op').'/payment-title/create' || $url==(request()->is(config('app.op').'/payment-title/*/edit'))) ? 'current-page':''}}">Expense Title</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.addExpense.create')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.op').'/payment-voucher'}}" class="{{($url==config('app.op').'/payment-voucher') ? 'current-page':''}}">Add Expense</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.addExpense.report')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.op').'/payment-voucher-report'}}" class="{{($url==config('app.op').'/payment-voucher-report') ? 'current-page':''}}">Expense Report</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                             @can('app.dashboard.dailyTransaction')
                                             <li>
                                                 <a href="{{$baseUrl.'/'.config('app.account').'/daily-transaction'}}" class="{{($url==config('app.account').'/daily-transaction') ? 'current-page':''}}">Daily Transaction</a>
                                             </li>
-                                            @endcan 
+                                            @endcan
                                         </ul>
                                     </div>
                                 </li>
@@ -737,7 +737,7 @@
 
                 </div>
                 <!-- Default sidebar wrapper end -->
-                
+
             </nav>
             <!-- Sidebar wrapper end -->
 
@@ -748,7 +748,7 @@
 
                 <!-- Page header starts -->
                 <div class="page-header">
-                    
+
                     <!-- Row start -->
                     <div class="row gutters">
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-9">
@@ -779,8 +779,8 @@
                                 <li class="dropdown">
                                     <a href="javascript:void(0)" id="userSettings" class="user-settings" data-toggle="dropdown" aria-haspopup="true">
                                         <span class="avatar">
-                                            <?php 
-                                                $user = DB::table('users')->where('id',Auth::id())->select('image')->first();    
+                                            <?php
+                                                $user = DB::table('users')->where('id',Auth::id())->select('image')->first();
                                             ?>
                                             <img src="{{asset('upload/user/'.$user->image)}}" alt="User Avatar">
                                             <span class="status busy"></span>
@@ -801,11 +801,11 @@
 
                         </div>
                     </div>
-                    <!-- Row end -->                    
+                    <!-- Row end -->
 
                 </div>
                 <!-- Page header ends -->
-                @yield('content') 
+                @yield('content')
                 <!-- App footer start -->
                 <div class="app-footer">© BinaryIT <?php echo date('Y')?></div>
                 <!-- App footer end -->
@@ -823,13 +823,13 @@
         {!!Html::script('custom/js/bootstrap.bundle.min.js')!!}
         {!!Html::script('custom/js/modernizr.js')!!}
         {!!Html::script('custom/js/moment.js')!!}
-        
+
         {!!Html::script('custom/js/webcam.min.js')!!}
 
         <!-- *************
             ************ Vendor Js Files *************
         ************* -->
-        
+
         <!-- Megamenu JS -->
         {!!Html::script('custom/vendor/megamenu/js/megamenu.js')!!}
         {!!Html::script('custom/vendor/megamenu/js/custom.js')!!}
@@ -845,7 +845,7 @@
         <!-- Data Tables -->
         {!!Html::script('custom/vendor/datatables/dataTables.min.js')!!}
         {!!Html::script('custom/vendor/datatables/dataTables.bootstrap.min.js')!!}
-        
+
         <!-- Custom Data tables -->
         {!!Html::script('custom/vendor/datatables/custom/custom-datatables.js')!!}
 
@@ -940,7 +940,7 @@
                 // newWin.document.write(top);
                 newWin.document.write(reportTablePrint.innerHTML);
                 if (is_chrome) {
-                    setTimeout(function () { // wait until all resources loaded 
+                    setTimeout(function () { // wait until all resources loaded
                     newWin.document.close(); // necessary for IE >= 10
                     newWin.focus(); // necessary for IE >= 10
                     newWin.print();  // change window to winPrint
@@ -960,10 +960,10 @@
             $('.keyup').on('keyup', function () {
               if ($('#newPass').val() == $('#confirmPass').val()) {
                 $('#confirmMsg').html('Password Matched !').css('color', 'green');
-              } else 
+              } else
                 $('#confirmMsg').html('Password Do not Matched !').css('color', 'red');
             });
-            
+
             jQuery('.decimal').on('keydown', function (event) {return isNumberOveride(event, this);});
 
             function isNumberOveride(evt, element) {
@@ -976,7 +976,7 @@
                 return false;
                 return true;
             }
-        </script> 
+        </script>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.10/js/select2.min.js"></script>
