@@ -91,8 +91,9 @@ Route::group(['middleware'=>['auth']],function(){
         Route::resource('country', 'App\Http\Controllers\CountryController');
         Route::resource('procurement-details', 'App\Http\Controllers\ProcurementDetailsController');
         Route::resource('g2g-document', 'App\Http\Controllers\G2GDocumentController');
+        Route::resource('countryAggriments', 'App\Http\Controllers\CountryAggrimentController');
     });
-    
+
     //******** others document part *******//
     Route::prefix(config('app.others'))->group(function () {
         Route::resource('document-type', 'App\Http\Controllers\DocumentTypeController');
@@ -133,7 +134,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('daily-transaction', 'App\Http\Controllers\DailyTransactionController@index')->name('daily-transaction');
         Route::get('daily-transaction', 'App\Http\Controllers\DailyTransactionController@filter')->name('daily-transaction-filter');
 
-        
+
         Route::get('budget-report/{id}', 'App\Http\Controllers\BankAccountController@budgetReport')->name('budget-report');
         Route::post('budget-report/{id}', 'App\Http\Controllers\BankAccountController@budgetReportFilter')->name('budget-report-filter');
 
@@ -165,11 +166,11 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('recovery-report', 'App\Http\Controllers\BudgetRecoveryController@recoveryReport')->name('recovery-report');
         Route::get('recovery-amendment', 'App\Http\Controllers\BudgetRecoveryController@recoveryAmendment')->name('recovery-amendment');
 
-        
+
         Route::get('combined-report', 'App\Http\Controllers\PPTFReportController@combinedReport')->name('combined-report');
         Route::get('individual-report/{id}', 'App\Http\Controllers\PPTFReportController@individulaReport')->name('individual-report');
     });
-   
+
 
     //******** users part *******//
     Route::prefix(config('app.user'))->group(function () {
@@ -179,9 +180,9 @@ Route::group(['middleware'=>['auth']],function(){
         Route::resource('user-role', 'App\Http\Controllers\RoleController');
 
     });
-   
 
-   
+
+
 
     // Setting part
     Route::put('save-site-setting/{id}', 'App\Http\Controllers\SettingController@saveSiteSetting')->name('save-site-setting');
@@ -194,7 +195,7 @@ Route::group(['middleware'=>['auth']],function(){
     // pptf common view
     Route::get('pptaf', 'App\Http\Controllers\WebsiteController@pptaf')->name('pptaf');
     Route::get('pptaf/individual/{id}', 'App\Http\Controllers\WebsiteController@pptafIndividual')->name('pptaf-individual');
-    
+
 });
 
 //******** Website part *******//

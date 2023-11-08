@@ -45,7 +45,7 @@ class CountryController extends Controller
     public function store(Request $request)
     {
         // Gate::authorize('app.Country.create');
-        
+
         $input = $request->all();
         $input['slug'] = Str::slug($input['name']);
 
@@ -122,7 +122,7 @@ class CountryController extends Controller
             Session::flash('flash_message', $validator->errors());
             return redirect()->back()->with('status_color','warning');
         }
-              
+
         $input = $request->all();
         try{
             $bug=0;

@@ -476,7 +476,8 @@
                                 <li class="default-sidebar-dropdown {{(
                                     $url==config('app.pfu').'/country' || $url==config('app.pfu').'/country/create' || $url==(request()->is(config('app.pfu').'/country/*/edit')) ||
                                     $url==config('app.pfu').'/procurement-details' || $url==config('app.pfu').'/procurement-details/create' || $url==(request()->is(config('app.pfu').'/procurement-details/*/edit')) ||
-                                    $url==config('app.pfu').'/g2g-document' || $url==config('app.pfu').'/g2g-document/create' || $url==(request()->is(config('app.pfu').'/g2g-document/*/edit'))) ? 'active':''}}">
+                                    $url==config('app.pfu').'/g2g-document' || $url==config('app.pfu').'/g2g-document/create' || $url==(request()->is(config('app.pfu').'/g2g-document/*/edit')) ||
+                                    $url==config('app.pfu').'/countryAggriments' || $url==config('app.pfu').'/countryAggriments/create' || $url==(request()->is(config('app.pfu').'/countryAggriments/*/edit'))) ? 'active':''}}">
                                     <a href="javascript::void(0)">
                                         <i class="icon-layers2"></i>
                                         <span class="menu-text">Procurement Details</span>
@@ -498,6 +499,9 @@
                                                 <a href="{{$baseUrl.'/'.config('app.pfu').'/g2g-document'}}" class="{{($url==config('app.pfu').'/g2g-document' || $url==config('app.pfu').'/g2g-document/create' || $url==(request()->is(config('app.pfu').'/g2g-document/*/edit'))) ? 'current-page':''}}">G2G Document</a>
                                             </li>
                                             @endcan
+                                            <li>
+                                                <a href="{{$baseUrl.'/'.config('app.pfu').'/countryAggriments'}}" class="{{($url==config('app.pfu').'/countryAggriments' || $url==config('app.pfu').'/countryAggriments/create' || $url==(request()->is(config('app.pfu').'/countryAggriments/*/edit'))) ? 'current-page':''}}">Country Agreement</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
