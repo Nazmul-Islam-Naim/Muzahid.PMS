@@ -18,6 +18,7 @@ class CreateCountryAggrimentsTable extends Migration
             $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
             $table->string('title')->nullable();
             $table->string('doc');
+            $table->date('date')->nullable();
             $table->timestamps();
         });
     }

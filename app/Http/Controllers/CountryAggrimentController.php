@@ -67,6 +67,7 @@ class CountryAggrimentController extends Controller
             'country_id'=> 'required',
             'title'=> 'nullable',
             'doc'=> 'required | mimes:pdf',
+            'date' => 'required | date | date_format:Y-m-d'
         ]);
         if ($validator->fails()) {
             Session::flash('flash_message', $validator->errors());
@@ -124,6 +125,7 @@ class CountryAggrimentController extends Controller
             'country_id'=> 'required',
             'title'=> 'nullable',
             'doc'=> 'nullable | mimes:pdf',
+            'date' => 'required | date | date_format:Y-m-d'
         ]);
         if ($validator->fails()) {
             Session::flash('flash_message', $validator->errors());

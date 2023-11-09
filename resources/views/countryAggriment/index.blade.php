@@ -32,6 +32,7 @@
                     <thead>
                       <tr>
                         <th>Sl</th>
+                        <th>Date</th>
                         <th>Country</th>
                         <th>Title</th>
                         <th>Document</th>
@@ -55,7 +56,23 @@
 <!-- /.content -->
 {!!Html::script('custom/yajraTableJs/jquery.js')!!}
 <script>
-   // ==================== date format ===========
+    // ==================== date format ===========
+    function dateFormat(data) {
+     let date, month, year;
+     date = data.getDate();
+     month = data.getMonth() + 1;
+     year = data.getFullYear();
+
+     date = date
+         .toString()
+         .padStart(2, '0');
+
+     month = month
+         .toString()
+         .padStart(2, '0');
+
+     return `${date}-${month}-${year}`;
+   }
 	$(document).ready(function() {
 		'use strict';
       var table = $('#example').DataTable({
@@ -70,7 +87,7 @@
             {
                 extend: 'excel',
                 exportOptions: {
-                    columns: [ 0, 1, 2, 3]
+                    columns: [ 0, 1, 2, 3, 4]
                 },
                 messageTop: 'The information in this table is copyright to Sirius Cybernetics Corp.'
             },
@@ -94,7 +111,7 @@
                 $(win.document.body).css("height", "auto").css("min-height", "0");
                 },
                 exportOptions: {
-                    columns: [ 0, 1, 2, 3]
+                    columns: [ 0, 1, 2, 3, 4]
                 },
                 messageBottom: null
             }
@@ -104,6 +121,16 @@
 		columns: [
             {
                 data: 'DT_RowIndex',
+            },
+            {
+                data: 'date',
+                render: function(data, type, row) {
+                    if (data != null) {
+                        return dateFormat(new Date(data)).toString();
+                    } else {
+                        return '';
+                    }
+                }
             },
             {
                 data: 'country.name',

@@ -80,6 +80,23 @@
                 <!-- Field wrapper end -->
               </div>
 
+              <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+                <!-- Field wrapper start -->
+                <div class="field-wrapper">
+                  <div class="input-group">
+                    <input
+                    type="date"
+                    name="date"
+                    class="form-control @error('date') is-invalid @enderror"
+                    value="{{$countryAggriment->date ??  date('Y-m-d')}}"
+                    required
+                    autocomplete="off">
+                  </div>
+                  <div class="field-placeholder">Date <span class="text-danger">*</span></div>
+                </div>
+                <!-- Field wrapper end -->
+              </div>
+
               <p class="text-danger">Note: document must be pdf</p>
 
             </div>

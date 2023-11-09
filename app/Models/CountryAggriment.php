@@ -9,7 +9,7 @@ class CountryAggriment extends Model
 {
     use HasFactory;
     protected $table = 'country_aggriments';
-    protected $fillable = [ 'country_id', 'title', 'doc' ];
+    protected $fillable = [ 'country_id', 'title', 'doc', 'date' ];
 
     // relations
     public function country() {
